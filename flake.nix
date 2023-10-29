@@ -27,7 +27,10 @@
 	      home-manager.useGlobalPkgs = true;
 	      home-manager.useUserPackages = true;
 	      home-manager.users.p1ng0ut = {
-	        imports = [ ./home.nix ];
+	        imports = [ 
+		  ./home.nix
+		  ./git.nix
+		];
 	      };
 	    }
 	  ];
