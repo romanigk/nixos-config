@@ -86,10 +86,6 @@
     isNormalUser = true;
     description = "Robert Manigk";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-      thunderbird
-    ];
   };
 
   # Allow unfree packages
@@ -101,6 +97,7 @@
     git
     neovim
     wget
+    tmux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
