@@ -38,6 +38,7 @@
     _1password
     firefox
     thunderbird
+    dino
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -66,7 +67,7 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   programs = {
