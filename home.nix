@@ -54,6 +54,12 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    # ssh configuration
+    ".ssh/config".text = ''
+      Host *
+        IdentityAgent ~/.1password/agent.sock
+    '';
   };
 
   # You can also manage environment variables but you will have to manually
