@@ -29,8 +29,6 @@
 	      home-manager.users.p1ng0ut = {
 	        imports = [ 
 		  ./home.nix
-		  ./git.nix
-		  ./fish.nix
 		];
 	      };
 	    }
