@@ -41,6 +41,7 @@
     dino
     meld
     jetbrains.idea-ultimate
+    element-desktop
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
