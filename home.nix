@@ -97,5 +97,10 @@
     fish = {
       enable = true;
     };
+
+    neovim = {
+      viAlias = true;
+      vimAlias = true;
+    };
   };
 }

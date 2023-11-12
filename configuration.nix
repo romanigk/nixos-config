@@ -103,11 +103,6 @@
 
   programs.fish.enable = true;
 
-  programs.neovim = {
-    viAlias = true;
-    vimAlias = true;
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
