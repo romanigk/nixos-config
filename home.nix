@@ -79,7 +79,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "nvim";
-    # SSH_AUTH_SOCK=$HOME/.1password/agent.sock;
+    SSH_AUTH_SOCK=/home/p1ng0ut/.1password/agent.sock;
   };
 
   programs = {
