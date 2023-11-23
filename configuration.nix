@@ -86,7 +86,7 @@
   users.users.p1ng0ut = {
     isNormalUser = true;
     description = "Robert Manigk";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   # Allow unfree packages
@@ -115,6 +115,11 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
