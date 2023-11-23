@@ -92,7 +92,7 @@
       userName = "Robert Manigk";
       extraConfig = {
         init.defaultBranch = "main";
-	pull.ff = "only";
+        pull.ff = "only";
       };
     };
 
