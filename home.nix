@@ -43,6 +43,7 @@
     jetbrains.idea-ultimate
     element-desktop
     signal-desktop
+    vscode
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -103,6 +104,15 @@
     neovim = {
       viAlias = true;
       vimAlias = true;
+    };
+
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        ms-azuretools.vscode-docker
+        vscodevim.vim
+        yzhang.markdown-all-in-one
+      ];
     };
   };
 }
