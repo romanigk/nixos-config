@@ -24,7 +24,7 @@
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
-        pulse-gen1 = lib.nixosSystem {
+        pulse15-gen1 = lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
@@ -41,7 +41,7 @@
         };
       };
       homeManagerConfiguration = {
-        pulse-gen1 = home-manager.lib.homeManagerConfiguration {
+        pulse15-gen1 = home-manager.lib.homeManagerConfiguration {
           inherit system pkgs;
           modules = [
             ./home.nix
