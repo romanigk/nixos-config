@@ -44,6 +44,7 @@
     element-desktop
     signal-desktop
     vscode
+    direnv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -99,6 +100,9 @@
 
     fish = {
       enable = true;
+      interactiveShellInit = ''
+        eval "$(direnv hook fish)"
+      '';
     };
 
     neovim = {
