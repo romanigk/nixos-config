@@ -98,13 +98,6 @@
       };
     };
 
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        eval "$(direnv hook fish)"
-      '';
-    };
-
     neovim = {
       viAlias = true;
       vimAlias = true;
