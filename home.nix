@@ -107,7 +107,8 @@
       vimAlias = true;
       vimdiffAlias = true;
       plugins = with pkgs.vimPlugins; [
-        LazyVim
+	lazy-nvim
+	LazyVim
       ];
     };
 
