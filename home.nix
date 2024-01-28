@@ -15,6 +15,7 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  fonts.fontconfig.enable = true;
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -45,6 +46,7 @@
     signal-desktop
     vscode
     direnv
+    (nerdfonts.override { fonts = ["FiraCode" "FantasqueSansMono"]; })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
