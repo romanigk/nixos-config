@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, nur, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, nur, nixvim, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -47,7 +47,7 @@
       };
       homeManagerConfiguration = {
         pulse15-gen1 = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
+          inherit system pkgs nixvim;
           modules = [
             ./home.nix
           ];
