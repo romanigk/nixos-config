@@ -46,6 +46,7 @@
     signal-desktop
     vscode
     direnv
+    mullvad-vpn
     (nerdfonts.override { fonts = ["FiraCode" "FantasqueSansMono"]; })
   ];
 
