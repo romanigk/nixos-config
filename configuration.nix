@@ -52,6 +52,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   users.defaultUserShell = pkgs.fish;
@@ -68,6 +69,14 @@
     neovim
     wget
     tmux
+
+    # Hyprland packages
+    waybar
+    eww
+    dunst
+    libnotify
+    kitty
+    rofi-wayland
   ];
 
   programs.fish = {
@@ -75,6 +84,15 @@
     interactiveShellInit = ''
       eval "$(direnv hook fish)"
     '';
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  hardware = {
+    opengl.enable = true;
   };
 
   services.openssh.enable = true;
