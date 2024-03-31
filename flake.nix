@@ -15,43 +15,22 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nixvim,
-  } @ inputs: let
+  outputs = { self, nixpkgs, ... } @ inputs:
+  let 
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
-    in {
-      nixosConfigurations = {
-        pulse15-gen1 = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./configuration.nix
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.p1ng0ut = {
-                imports = [
-                  ./home.nix
-                ];
-              };
-            }
-          ];
-        };
-      };
-      homeManagerConfiguration = {
-        pulse15-gen1 = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs nixvim;
-          modules = [
-            ./home.nix
-          ];
-        };
+  in {
+    nixosConfigurations = {
+      pulse15-gen1 = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system; };
+        modules = [
+          ./configuration.nix
+        ];
       };
     };
+  };
 }
