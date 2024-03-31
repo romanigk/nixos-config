@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
   let 
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -29,7 +29,24 @@
         specialArgs = { inherit inputs system; };
         modules = [
           ./configuration.nix
+	  home-manager.nixosModules.home-manager {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.p1ng0ut = {
+	      imports = [
+	        ./home.nix
+	      ];
+	    };
+	  }
         ];
+      };
+    };
+    homeManagerConfiguration = {
+      pulse15-gen1 = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+        modules = [
+	  ./home.nix
+	];
       };
     };
   };
