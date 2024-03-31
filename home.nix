@@ -17,6 +17,7 @@
     jetbrains.idea-ultimate
     element-desktop
     signal-desktop
+    vscode
     direnv
     mullvad-vpn
     (nerdfonts.override { fonts = ["FiraCode" "FantasqueSansMono"]; })
@@ -60,6 +61,15 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+    };
+
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        ms-azuretools.vscode-docker
+        vscodevim.vim
+        yzhang.markdown-all-in-one
+      ];
     };
   };
 
