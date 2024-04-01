@@ -73,7 +73,7 @@
     # Hyprland packages
     waybar
     eww
-    dunst
+    mako
     libnotify
     kitty
     rofi-wayland
@@ -89,6 +89,11 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
   };
 
   hardware = {
