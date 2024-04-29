@@ -15,39 +15,45 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
-  let 
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      lib = nixpkgs.lib;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    lib = nixpkgs.lib;
   in {
+    formatter.${system} = pkgs.alejandra;
+
     nixosConfigurations = {
       pulse15-gen1 = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = {inherit inputs system;};
         modules = [
           ./configuration.nix
-	  home-manager.nixosModules.home-manager {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.p1ng0ut = {
-	      imports = [
-	        ./home.nix
-	      ];
-	    };
-	  }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.p1ng0ut = {
+              imports = [
+                ./home.nix
+              ];
+            };
+          }
         ];
       };
     };
-    homeManagerConfiguration = {
-      pulse15-gen1 = home-manager.lib.homeManagerConfiguration {
-        inherit system pkgs;
-        modules = [
-	  ./home.nix
-	];
-      };
+
+    homeManagerConfiguration."p1ng0ut" = home-manager.lib.homeManagerConfiguration {
+      inherit system pkgs;
+      modules = [
+        ./home.nix
+      ];
     };
   };
 }

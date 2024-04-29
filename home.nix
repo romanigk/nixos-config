@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   home.username = "p1ng0ut";
   home.homeDirectory = "/home/p1ng0ut";
   home.stateVersion = "23.11";
@@ -20,7 +23,7 @@
     vscode
     direnv
     mullvad-vpn
-    (nerdfonts.override { fonts = ["FiraCode" "FantasqueSansMono"]; })
+    (nerdfonts.override {fonts = ["FiraCode" "FantasqueSansMono"];})
   ];
 
   home.file = {
@@ -33,7 +36,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    SSH_AUTH_SOCK=/home/p1ng0ut/.1password/agent.sock;
+    SSH_AUTH_SOCK = /home/p1ng0ut/.1password/agent.sock;
   };
 
   programs = {

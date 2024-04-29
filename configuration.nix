@@ -1,10 +1,13 @@
-{ inputs, config, pkgs, ... }:
-
 {
+  inputs,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -30,7 +33,7 @@
   };
 
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -59,7 +62,7 @@
   users.users.p1ng0ut = {
     isNormalUser = true;
     description = "Robert Manigk";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "docker"];
   };
 
   nixpkgs.config.allowUnfree = true;
