@@ -49,7 +49,7 @@
       };
     };
 
-    homeManagerConfiguration."p1ng0ut" = home-manager.lib.homeManagerConfiguration {
+    homeManagerConfiguration."p1ng0ut@pulse15-gen1" = home-manager.lib.homeManagerConfiguration {
       inherit system pkgs;
       modules = [
         ./home.nix
