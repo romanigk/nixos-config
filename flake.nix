@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "p1ng0uts new nix config, based on 'github:misterio77/nix-starter-config#standard'";
 
   inputs = {
     # Nixpkgs
@@ -52,8 +52,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
-      your-hostname = nixpkgs.lib.nixosSystem {
+      pulse15-gen1 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
@@ -65,8 +64,7 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "your-username@your-hostname" = home-manager.lib.homeManagerConfiguration {
+      "p1ng0ut@pulse15-gen1" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
