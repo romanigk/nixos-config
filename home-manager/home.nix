@@ -45,23 +45,48 @@
     };
   };
 
-  # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "p1ng0ut";
+    homeDirectory = "/home/p1ng0ut";
+
+    packages = with pkgs; [
+      _1password-gui
+      _1password
+      firefox
+      thunderbird
+      dino
+      meld
+      jetbrains.idea-ultimate
+      element-desktop
+      signal-desktop
+      vscode
+      direnv
+      mullvad-vpn
+    ];
+
+    file = {
+      ".config/1Password/ssh/agent.toml".source = config/1Password/ssh/agent.toml;
+      ".ssh/config".text = ''
+        Host *
+	  IdentityAgent ~/.1password/agent.sock
+       '';
+    };
+
+    sessionVariables = {
+      EDITOR = "nvim";
+      SSH_AUTH_SOCK = /home/p1ng0ut/.1Password/agent.sock;
+    };
+
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "23.05";
   };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
-
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs = {
+    neovim.enable = true;
+    home-manager.enable = true;
+    git.enable = true;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
 }
