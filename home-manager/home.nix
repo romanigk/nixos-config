@@ -74,7 +74,7 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      SSH_AUTH_SOCK = /home/p1ng0ut/.1Password/agent.sock;
+      SSH_AUTH_SOCK = /home/p1ng0ut/.1password/agent.sock;
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
@@ -85,6 +85,11 @@
     neovim.enable = true;
     home-manager.enable = true;
     git.enable = true;
+  };
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    enableSshSupport = true;
   };
 
   # Nicely reload system units when changing configs
