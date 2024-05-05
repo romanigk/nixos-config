@@ -53,8 +53,6 @@
     homeDirectory = "/home/p1ng0ut";
 
     packages = with pkgs; [
-      _1password-gui
-      _1password
       firefox
       thunderbird
       dino
@@ -69,10 +67,6 @@
 
     file = {
       ".config/1Password/ssh/agent.toml".source = config/1Password/ssh/agent.toml;
-      ".ssh/config".text = ''
-        Host *
-          IdentityAgent ~/.1password/agent.sock
-      '';
     };
 
     sessionVariables = {
@@ -88,12 +82,11 @@
     home-manager.enable = true;
 
     _1password-shell-plugins = {
-      # enable 1Password shell plugins for bash, zsh, and fish shell
       enable = true;
-      # the specified packages as well as 1Password CLI will be
-      # automatically installed and configured to use shell plugins
       plugins = with pkgs; [gh awscli2 cachix];
     };
+
+    firefox.enable = true;
 
     git = {
       enable = true;
@@ -111,6 +104,14 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+    };
+
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        Host *
+          IdentityAgent "~/.1password/agent.sock"
+      '';
     };
 
     vscode = {

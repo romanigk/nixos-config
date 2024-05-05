@@ -151,12 +151,20 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      eval "$(direnv hook fish)"
-    '';
+  programs = {
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = ["p1ng0ut"];
+    };
+    fish = {
+      enable = true;
+      interactiveShellInit = ''
+        eval "$(direnv hook fish)"
+      '';
+    };
   };
+
   # List services that you want to enable:
 
   # Open ports in the firewall.
