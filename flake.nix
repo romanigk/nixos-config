@@ -13,7 +13,6 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-
     # 1Password
     _1password-shell-plugins.url = "github:1Password/shell-plugins";
   };

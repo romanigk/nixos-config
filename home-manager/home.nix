@@ -20,7 +20,7 @@
     # ./nvim.nix
 
     # 1Password
-    inputs._1password-shell-plugins.hmModules.default    
+    inputs._1password-shell-plugins.hmModules.default
   ];
 
   nixpkgs = {
@@ -92,11 +92,7 @@
       enable = true;
       # the specified packages as well as 1Password CLI will be
       # automatically installed and configured to use shell plugins
-      plugins = with pkgs; [ gh awscli2 cachix ];
-    };    
-
-    fish = {
-      enable = true;
+      plugins = with pkgs; [gh awscli2 cachix];
     };
 
     git = {

@@ -138,8 +138,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
+    git
+    neovim
+    wget
+    tmux
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -149,7 +151,12 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      eval "$(direnv hook fish)"
+    '';
+  };
   # List services that you want to enable:
 
   # Open ports in the firewall.
@@ -196,12 +203,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.defaultUserShell = pkgs.fish;
   users.users = {
     p1ng0ut = {
       isNormalUser = true;
       description = "Robert Manigk";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "docker"];
       packages = [
         inputs.home-manager.packages.${pkgs.system}.default
       ];
