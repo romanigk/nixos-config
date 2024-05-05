@@ -2,14 +2,26 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
+  inputs,
+  outputs,
   pkgs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+
+    # Import home manager's NixOS module
+    inputs.home-manager.nixosModules.home-manager
   ];
+
+  home-manager = {
+    extraSpecialArgs = {inherit inputs outputs;};
+    users = {
+      # Import your home-manager configuration
+      p1ng0ut = import ../home-manager/home.nix;
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -83,14 +95,15 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.p1ng0ut = {
-    isNormalUser = true;
-    description = "Robert Manigk";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-      #  thunderbird
-    ];
+  users.users = {
+    p1ng0ut = {
+      isNormalUser = true;
+      description = "Robert Manigk";
+      extraGroups = ["networkmanager" "wheel"];
+      packages = [
+        inputs.home-manager.packages.${pkgs.system}.default
+      ];
+    };
   };
 
   # Allow unfree packages
