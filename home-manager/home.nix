@@ -85,7 +85,8 @@
 
     _1password-shell-plugins = {
       enable = true;
-      plugins = with pkgs; [gh awscli2 cachix];
+      # Activate plugins when using them
+      # plugins = with pkgs; [gh awscli2 cachix];
     };
 
     firefox.enable = true;
