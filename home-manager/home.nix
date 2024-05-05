@@ -67,8 +67,8 @@
     file = {
       ".config/1Password/ssh/agent.toml".source = config/1Password/ssh/agent.toml;
       ".ssh/config".text = ''
-             Host *
-        IdentityAgent ~/.1password/agent.sock
+        Host *
+          IdentityAgent ~/.1password/agent.sock
       '';
     };
 
@@ -78,14 +78,40 @@
     };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 
   programs = {
-    neovim.enable = true;
     home-manager.enable = true;
-    git.enable = true;
+
+    git = {
+      enable = true;
+      userEmail = "p1ng0ut@mailbox.org";
+      userName = "Robert Manigk";
+      extraConfig = {
+        init.defaultBranch = "main";
+        pull.ff = "only";
+      };
+    };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+    };
+
+    vscode = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+        ms-azuretools.vscode-docker
+        vscodevim.vim
+        yzhang.markdown-all-in-one
+      ];
+    };
   };
+
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
