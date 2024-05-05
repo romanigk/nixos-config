@@ -53,6 +53,8 @@
     homeDirectory = "/home/p1ng0ut";
 
     packages = with pkgs; [
+      _1password-gui
+      _1password
       firefox
       thunderbird
       dino
