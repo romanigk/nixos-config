@@ -18,9 +18,6 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-
-    # 1Password
-    inputs._1password-shell-plugins.hmModules.default
   ];
 
   nixpkgs = {
@@ -84,12 +81,6 @@
 
   programs = {
     home-manager.enable = true;
-
-    _1password-shell-plugins = {
-      enable = true;
-      # Activate plugins when using them
-      # plugins = with pkgs; [gh awscli2 cachix];
-    };
 
     firefox.enable = true;
 
