@@ -102,10 +102,6 @@
       vimdiffAlias = true;
     };
 
-    ssh = {
-      enable = true;
-    };
-
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
