@@ -138,6 +138,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    _1password
+    _1password-gui
     git
     neovim
     wget
