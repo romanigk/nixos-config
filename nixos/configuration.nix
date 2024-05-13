@@ -138,8 +138,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    _1password
-    _1password-gui
     git
     neovim
     wget
@@ -175,19 +173,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  services.openssh = {
-    enable = true;
-    settings = {
-      # Opinionated: forbid root login through SSH.
-      PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-      PasswordAuthentication = false;
-    };
-  };
 
   services.pipewire = {
     enable = true;
