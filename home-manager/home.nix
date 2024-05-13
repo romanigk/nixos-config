@@ -67,6 +67,11 @@
       ".ssh/config".text = ''
         Host *
           IdentityAgent ~/.1password/agent.sock
+
+        Host github.com
+          User git
+          IdentityFile ~/.ssh/github-com
+          IdentityAgent none
       '';
     };
 
