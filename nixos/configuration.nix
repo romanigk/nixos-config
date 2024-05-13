@@ -151,11 +151,6 @@
   #   enableSSHSupport = true;
   # };
   programs = {
-    _1password.enable = true;
-    _1password-gui = {
-      enable = true;
-      polkitPolicyOwners = ["p1ng0ut"];
-    };
     fish = {
       enable = true;
       interactiveShellInit = ''
