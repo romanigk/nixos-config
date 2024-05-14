@@ -87,7 +87,15 @@
   programs = {
     home-manager.enable = true;
 
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      profiles.p1ng0ut = {
+        bookmarks = {};
+        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+          ublock-origin
+        ];
+      };
+    };
 
     git = {
       enable = true;
