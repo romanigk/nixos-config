@@ -22,9 +22,6 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-
-    # Import home manager's NixOS module
-    inputs.home-manager.nixosModules.home-manager
   ];
 
   nixpkgs = {
@@ -49,14 +46,6 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
-    };
-  };
-
-  home-manager = {
-    extraSpecialArgs = {inherit inputs outputs;};
-    users = {
-      # Import your home-manager configuration
-      p1ng0ut = import ../home-manager/home.nix;
     };
   };
 
