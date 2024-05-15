@@ -92,6 +92,7 @@
       profiles.p1ng0ut = {
         bookmarks = {};
         extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+          cookie-autodelete
           ublock-origin
         ];
       };
