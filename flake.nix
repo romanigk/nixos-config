@@ -41,6 +41,7 @@
 
     overlays = import ./overlays {inherit inputs;};
 
+    packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     nixosConfigurations = {
