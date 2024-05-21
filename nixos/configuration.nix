@@ -147,6 +147,8 @@
       polkitPolicyOwners = ["p1ng0ut"];
     };
 
+    direnv.enable = true;
+
     fish = {
       enable = true;
       interactiveShellInit = ''
