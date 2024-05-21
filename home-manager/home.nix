@@ -40,6 +40,7 @@
     ];
     config = {
       allowUnfree = true;
+      allowUnfreePredicate = (_: true);
     };
   };
 
@@ -90,6 +91,7 @@
       profiles.p1ng0ut = {
         bookmarks = {};
         extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+          # onepassword-password-manager
           cookie-autodelete
           ublock-origin
         ];
