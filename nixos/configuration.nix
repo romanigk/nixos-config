@@ -143,7 +143,7 @@
     _1password.enable = true;
 
     _1password-gui = {
-      enable =true;
+      enable = true;
       polkitPolicyOwners = ["p1ng0ut"];
     };
 
