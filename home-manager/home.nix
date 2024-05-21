@@ -94,6 +94,7 @@
           # onepassword-password-manager
           cookie-autodelete
           ublock-origin
+	  privacy-badger
         ];
       };
     };
