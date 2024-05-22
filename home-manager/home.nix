@@ -40,7 +40,7 @@
     ];
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
 
@@ -49,16 +49,17 @@
     homeDirectory = "/home/p1ng0ut";
 
     packages = with pkgs; [
-      firefox
-      thunderbird
       dino
-      meld
-      jetbrains.idea-ultimate
-      element-desktop
-      signal-desktop
-      vscode
       direnv
+      discord
+      element-desktop
+      firefox
+      jetbrains.idea-ultimate
+      meld
       mullvad-vpn
+      signal-desktop
+      thunderbird
+      vscode
     ];
 
     file = {
@@ -94,7 +95,7 @@
           # onepassword-password-manager
           cookie-autodelete
           ublock-origin
-	  privacy-badger
+          privacy-badger
         ];
       };
     };
