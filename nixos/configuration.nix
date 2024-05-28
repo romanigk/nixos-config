@@ -190,9 +190,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.defaultUserShell = pkgs.fish;
   users.users = {
     p1ng0ut = {
+      shell = pkgs.fish;
+      useDefaultShell = true;
       isNormalUser = true;
       description = "Robert Manigk";
       extraGroups = ["networkmanager" "wheel" "docker"];
