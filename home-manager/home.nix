@@ -18,6 +18,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./firefox.nix
   ];
 
   nixpkgs = {
@@ -53,7 +54,6 @@
       direnv
       discord
       element-desktop
-      firefox
       jetbrains.idea-ultimate
       meld
       mullvad-vpn
@@ -87,19 +87,6 @@
 
   programs = {
     home-manager.enable = true;
-
-    firefox = {
-      enable = true;
-      profiles.p1ng0ut = {
-        bookmarks = {};
-        extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-          # onepassword-password-manager
-          cookie-autodelete
-          ublock-origin
-          privacy-badger
-        ];
-      };
-    };
 
     git = {
       enable = true;
