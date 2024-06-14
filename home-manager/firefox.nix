@@ -18,11 +18,23 @@ in {
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
           DisableTelemetry = true;
-          # add policies here ...
+          DisableFirefoxStudies = true;
+          EnableTrackingProtection = {
+            Value = true;
+            Locked = true;
+            Cryptomining = true;
+            Fingerprinting = true;
+            EmailTracking = true;
+          };
+          DisablePocket = true;
+          DisableFirefoxScreenshots = true;
+          OverrideFirstRunPage = "";
+          OverridePostUpdatePage = "";
+          DontCheckDefaultBrowser = true;
+          DisplayBookmarksToolbar = "never";
+          DisplayMenuBar = "default-off";
+          SearchBar = "unified";
 
-          /*
-          ---- EXTENSIONS ----
-          */
           ExtensionSettings = {
             "*".installation_mode = "blocked";
             # uBlock Origin:
@@ -40,13 +52,8 @@ in {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
               installation_mode = "force_installed";
             };
-            # add extensions here...
           };
 
-          /*
-          ---- PREFERENCES ----
-          */
-          # Set preferences shared by all profiles.
           Preferences = {
             "browser.contentblocking.category" = {
               Value = "strict";
@@ -54,24 +61,31 @@ in {
             };
             "extensions.pocket.enabled" = lock-false;
             "extensions.screenshots.disabled" = lock-true;
-            # add global preferences here...
+            "browser.topsites.contile.enabled" = lock-false;
+            "browser.formfill.enable" = lock-false;
+            "browser.search.suggest.enabled" = lock-false;
+            "browser.search.suggest.enabled.private" = lock-false;
+            "browser.urlbar.suggest.searches" = lock-false;
+            "browser.urlbar.showSearchSuggestionsFirst" = lock-false;
+            "browser.newtabpage.activity-stream.feeds.section.topstories" = lock-false;
+            "browser.newtabpage.activity-stream.feeds.snippets" = lock-false;
+            "browser.newtabpage.activity-stream.section.highlights.includePocket" = lock-false;
+            "browser.newtabpage.activity-stream.section.highlights.includeBookmarks" = lock-false;
+            "browser.newtabpage.activity-stream.section.highlights.includeDownloads" = lock-false;
+            "browser.newtabpage.activity-stream.section.highlights.includeVisited" = lock-false;
+            "browser.newtabpage.activity-stream.showSponsored" = lock-false;
+            "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
+            "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
           };
         };
       };
 
-      /*
-      ---- PROFILES ----
-      */
-      # Switch profiles via about:profiles page.
-      # For options that are available in Home-Manager see
-      # https://nix-community.github.io/home-manager/options.html#opt-programs.firefox.profiles
       profiles = {
         p1ng0ut = {
           id = 0;
           name = "p1ng0ut";
           isDefault = true;
           settings = {
-            # specify profile-specific preferences here; check about:config for options
             "browser.newtabpage.activity-stream.feeds.section.highlights" = false;
             "browser.startup.homepage" = "https://nixos.org";
             "browser.newtabpage.pinned" = [
@@ -80,7 +94,6 @@ in {
                 url = "https://nixos.org";
               }
             ];
-            # add preferences for profile_0 here...
           };
         };
         p3ng0ut = {
@@ -90,10 +103,8 @@ in {
           settings = {
             "browser.newtabpage.activity-stream.feeds.section.highlights" = true;
             "browser.startup.homepage" = "https://ecosia.org";
-            # add preferences for profile_1 here...
           };
         };
-        # add profiles here...
       };
     };
   };
