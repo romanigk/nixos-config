@@ -33,6 +33,7 @@ in {
           DontCheckDefaultBrowser = true;
           DisplayBookmarksToolbar = "never";
           DisplayMenuBar = "default-off";
+          SanitizeOnShutdown = true;
           SearchBar = "unified";
 
           ExtensionSettings = {
