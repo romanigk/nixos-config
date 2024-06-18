@@ -98,14 +98,6 @@
       };
     };
 
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-    };
-
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
@@ -114,6 +106,10 @@
         yzhang.markdown-all-in-one
       ];
     };
+
+    neovim.plugins = [
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    ];
   };
 
   services.gpg-agent = {
