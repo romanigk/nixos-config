@@ -58,6 +58,7 @@
       meld
       mullvad-vpn
       signal-desktop
+      slack
       terraform
       thunderbird
       vscode
