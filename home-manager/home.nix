@@ -61,6 +61,7 @@
       terraform
       thunderbird
       vscode
+      xdg_utils
       zoom-us
     ];
 
