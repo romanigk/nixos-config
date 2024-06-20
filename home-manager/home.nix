@@ -61,6 +61,7 @@
       terraform
       thunderbird
       vscode
+      zoom-us
     ];
 
     file = {
