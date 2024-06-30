@@ -19,6 +19,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./firefox.nix
+    ./thunderbird.nix
   ];
 
   nixpkgs = {
@@ -60,7 +61,6 @@
       signal-desktop
       slack
       terraform
-      thunderbird
       vscode
       xdg_utils
       zoom-us
