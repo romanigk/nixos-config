@@ -46,6 +46,41 @@
     };
   };
 
+  accounts.email = {
+    accounts."mailbox.org" = {
+      address = "romanigk@mailbox.org";
+      aliases = ["p1ng0ut@mailbox.org"];
+      userName = "romanigk@mailbox.org";
+      imap = {
+        host = "imap.mailbox.org";
+        port = 933;
+      };
+      mbsync = {
+        enable = true;
+        create = "maildir";
+      };
+      notmuch.enable = true;
+      primary = true;
+      realName = "Robert Manigk";
+      signature = {
+        text = ''
+          Beste Grüße
+          Robert Manigk
+        '';
+        showSignature = "append";
+      };
+      passwordCommand = "op read op://private/mailbox.org/password";
+      smtp = {
+        host = "smtp.mailbox.org";
+        port = 465;
+      };
+      thunderbird = {
+        enable = true;
+        profiles = ["p1ng0ut"];
+      };
+    };
+  };
+
   home = {
     username = "p1ng0ut";
     homeDirectory = "/home/p1ng0ut";
@@ -114,6 +149,14 @@
     neovim.plugins = [
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     ];
+
+    mbsync.enable = true;
+    notmuch = {
+      enable = true;
+      hooks = {
+        preNew = "mbsync --all";
+      };
+    };
   };
 
   services.gpg-agent = {
