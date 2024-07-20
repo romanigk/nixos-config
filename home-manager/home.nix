@@ -96,6 +96,7 @@
       userEmail = "p1ng0ut@mailbox.org";
       userName = "Robert Manigk";
       extraConfig = {
+        core.editor = "nvim";
         init.defaultBranch = "main";
         pull.ff = "only";
       };
