@@ -48,31 +48,33 @@
 
   accounts.email = {
     accounts."mailbox.org" = {
-      address = "romanigk@mailbox.org";
+      primary = true;
+      realName = "Robert Manigk";
+      address = " romanigk@mailbox.org";
       aliases = ["p1ng0ut@mailbox.org"];
+
       userName = "romanigk@mailbox.org";
+      passwordCommand = "op read op://private/mailbox.org/password";
+
       imap = {
         host = "imap.mailbox.org";
-        port = 933;
+        port = 993;
+      };
+      smtp = {
+        host = "smtp.mailbox.org";
+        port = 465;
       };
       mbsync = {
         enable = true;
         create = "maildir";
       };
       notmuch.enable = true;
-      primary = true;
-      realName = "Robert Manigk";
       signature = {
         text = ''
           Beste Grüße
           Robert Manigk
         '';
         showSignature = "append";
-      };
-      passwordCommand = "op read op://private/mailbox.org/password";
-      smtp = {
-        host = "smtp.mailbox.org";
-        port = 465;
       };
       thunderbird = {
         enable = true;
