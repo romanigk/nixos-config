@@ -68,7 +68,10 @@
         enable = true;
         create = "maildir";
       };
-      neomutt.enable = true;
+      neomutt = {
+        enable = true;
+        mailboxType = "imap";
+      };
       notmuch.enable = true;
       signature = {
         text = ''
