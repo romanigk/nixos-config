@@ -68,6 +68,7 @@
         enable = true;
         create = "maildir";
       };
+      neomutt.enable = true;
       notmuch.enable = true;
       signature = {
         text = ''
@@ -149,6 +150,8 @@
         jnoortheen.nix-ide
       ];
     };
+
+    neomutt.enable = true;
 
     neovim.plugins = [
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
