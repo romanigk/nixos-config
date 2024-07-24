@@ -146,7 +146,7 @@
         ms-azuretools.vscode-docker
         vscodevim.vim
         yzhang.markdown-all-in-one
-	jnoortheen.nix-ide
+        jnoortheen.nix-ide
       ];
     };
 
