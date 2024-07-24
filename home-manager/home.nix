@@ -95,6 +95,7 @@
       jetbrains.idea-ultimate
       meld
       mullvad-vpn
+      neomutt
       signal-desktop
       slack
       terraform
