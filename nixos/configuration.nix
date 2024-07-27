@@ -113,12 +113,7 @@
 
     direnv.enable = true;
 
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        eval "$(direnv hook fish)"
-      '';
-    };
+    fish.enable = true;
 
     neovim = {
       enable = true;

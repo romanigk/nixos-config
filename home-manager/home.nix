@@ -119,6 +119,9 @@
           IdentityFile ~/.ssh/github-com
           IdentityAgent none
       '';
+      ".config/fish/config.fish".text = ''
+        direnv hook fish | source
+      '';
     };
 
     sessionVariables = {
