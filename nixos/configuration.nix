@@ -91,6 +91,8 @@
 
   console.keyMap = "de";
 
+  services.fwupd.enable = true;
+
   services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
