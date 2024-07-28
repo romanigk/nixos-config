@@ -93,7 +93,6 @@
 
     packages = with pkgs; [
       dino
-      direnv
       discord
       element-desktop
       jetbrains.idea-ultimate
@@ -134,6 +133,12 @@
 
   programs = {
     home-manager.enable = true;
+
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      nix-direnv.enable = true;
+    };
 
     git = {
       enable = true;
