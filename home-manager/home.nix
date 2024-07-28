@@ -102,7 +102,6 @@
       neomutt
       signal-desktop
       slack
-      terraform
       vscode
       xdg_utils
       zoom-us
@@ -171,6 +170,8 @@
       };
     };
   };
+
+  services.fwupd.enable = true;
 
   services.gpg-agent = {
     enable = true;
