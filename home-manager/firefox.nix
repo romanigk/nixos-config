@@ -31,7 +31,7 @@ in {
           OverrideFirstRunPage = "";
           OverridePostUpdatePage = "";
           DontCheckDefaultBrowser = true;
-          DisplayBookmarksToolbar = "never";
+          DisplayBookmarksToolbar = "newtab";
           DisplayMenuBar = "default-off";
           SanitizeOnShutdown = true;
           SearchBar = "unified";
