@@ -134,6 +134,10 @@
   programs = {
     home-manager.enable = true;
 
+    chromium = {
+      enable = true;
+    };
+
     direnv = {
       enable = true;
       enableFishIntegration = true;
