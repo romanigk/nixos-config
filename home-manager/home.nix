@@ -96,6 +96,7 @@
       discord
       element-desktop
       jetbrains.idea-ultimate
+      jetbrains.rust-rover
       meld
       mullvad-vpn
       neomutt
