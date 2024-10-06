@@ -75,8 +75,8 @@
       notmuch.enable = true;
       signature = {
         text = ''
-          Beste Grüße
           Robert Manigk
+          as a private person
         '';
         showSignature = "append";
       };
