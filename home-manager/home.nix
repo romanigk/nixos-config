@@ -93,6 +93,7 @@
       element-desktop
       jetbrains.idea-ultimate
       jetbrains.rust-rover
+      jetbrains.webstorm
       meld
       mullvad-vpn
       neomutt
