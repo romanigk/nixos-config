@@ -19,7 +19,6 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./firefox.nix
-    ./thunderbird.nix
   ];
 
   nixpkgs = {
@@ -80,10 +79,6 @@
         '';
         showSignature = "append";
       };
-      thunderbird = {
-        enable = true;
-        profiles = ["p1ng0ut"];
-      };
     };
   };
 
@@ -92,6 +87,7 @@
     homeDirectory = "/home/p1ng0ut";
 
     packages = with pkgs; [
+      claws-mail
       dino
       discord
       element-desktop
