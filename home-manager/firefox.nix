@@ -15,6 +15,24 @@ in {
   programs = {
     firefox = {
       enable = true;
+      policies = {
+        ExtensionSettings = with builtins; let
+          extension = shortId: uuid: {
+            name = uuid;
+            value = {
+              install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
+              installation_mode = "normal_installed";
+            };
+          };
+        in
+          listToAttrs [
+            (extension "1password-x-password-manager" "{d634138d-c276-4fc8-924b-40a0ea21d284}")
+            (extension "adblock-for-youtube" "jid1-q4sG8pYhq8KGHs@jetpack")
+            (extension "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}")
+            (extension "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack")
+            (extension "ublock-origin" "uBlock0@raymondhill.net")
+          ];
+      };
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
           DisableTelemetry = true;
@@ -35,25 +53,6 @@ in {
           DisplayMenuBar = "default-off";
           SanitizeOnShutdown = true;
           SearchBar = "unified";
-
-          ExtensionSettings = {
-            "*".installation_mode = "blocked";
-            # uBlock Origin:
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # Privacy Badger:
-            "jid1-MnnxcxisBPnSXQ@jetpack" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # 1Password:
-            "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
-              installation_mode = "force_installed";
-            };
-          };
 
           Preferences = {
             "browser.contentblocking.category" = {
