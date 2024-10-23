@@ -100,7 +100,7 @@
       signal-desktop
       slack
       vscode
-      xdg_utils
+      xdg-utils
       zoom-us
     ];
 
