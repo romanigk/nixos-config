@@ -6,7 +6,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     systems.url = "github:nix-systems/default-linux";
 
-    hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,6 +17,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixos-hardware,
     home-manager,
     systems,
     ...
@@ -46,6 +47,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/configuration.nix
+          nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
         ];
       };
     };
