@@ -61,6 +61,7 @@ in {
             };
             "extensions.pocket.enabled" = lock-false;
             "extensions.screenshots.disabled" = lock-true;
+            "browser.download.clearHistoryOnDelete" = 1;
             "browser.topsites.contile.enabled" = lock-false;
             "browser.formfill.enable" = lock-false;
             "browser.search.suggest.enabled" = lock-false;
@@ -76,6 +77,8 @@ in {
             "browser.newtabpage.activity-stream.showSponsored" = lock-false;
             "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+            "privacy.clearHistory.siteSettings" = lock-true;
+            "privacy.clearOnShutdown.openWindows" = lock-true;
           };
         };
       };
