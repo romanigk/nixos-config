@@ -47,7 +47,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/configuration.nix
-          nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
+          #nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
         ];
       };
     };
