@@ -99,6 +99,7 @@
       neomutt
       signal-desktop
       slack
+      vlc
       vscode
       xdg-utils
       zoom-us
