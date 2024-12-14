@@ -118,6 +118,7 @@
     neovim
     wget
     tmux
+    gnome-tweaks
   ];
 
   programs = {
