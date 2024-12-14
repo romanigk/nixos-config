@@ -153,7 +153,7 @@
       enable = true;
       extensions = with pkgs.vscode-extensions; [
         ms-azuretools.vscode-docker
-        vscodevim.vim
+        asvetliakov.vscode-neovim
         yzhang.markdown-all-in-one
         jnoortheen.nix-ide
       ];
