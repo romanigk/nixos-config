@@ -14,5 +14,10 @@
 	"video"
 	"wheel"
       ];
+
+    openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/p1ng0ut/ssh.pub);
+    packages = [pkgs.home-manager];
     };
+
+  home-manager.users.p1ng0ut = import ../../../../home/p1ng0ut/${config.networking.hostName}.nix;
   }
