@@ -91,9 +91,12 @@
       dino
       discord
       element-desktop
+      ffmpeg
+      file
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       jetbrains.webstorm
+      mediathekview
       meld
       mullvad-vpn
       neomutt
