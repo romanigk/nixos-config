@@ -93,9 +93,11 @@
       element-desktop
       ffmpeg
       file
+      gajim
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       jetbrains.webstorm
+      krita
       libreoffice-still
       mediathekview
       meld
