@@ -49,7 +49,7 @@
     accounts."mailbox.org" = {
       primary = true;
       realName = "Robert Manigk";
-      address = " romanigk@mailbox.org";
+      address = "romanigk@mailbox.org";
       aliases = ["p1ng0ut@mailbox.org"];
 
       userName = "romanigk@mailbox.org";
