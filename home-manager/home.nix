@@ -157,7 +157,7 @@
 
     vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with pkgs.vscode-extensions; [
         ms-azuretools.vscode-docker
         asvetliakov.vscode-neovim
         yzhang.markdown-all-in-one
