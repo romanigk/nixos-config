@@ -87,7 +87,6 @@
     homeDirectory = "/home/p1ng0ut";
 
     packages = with pkgs; [
-      claws-mail
       dino
       discord
       element-desktop
