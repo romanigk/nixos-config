@@ -152,6 +152,9 @@
         init.defaultBranch = "main";
         pull.ff = "only";
       };
+      aliases = {
+        adog = "log --all --decorate --oneline --graph";
+      };
     };
 
     vscode = {
