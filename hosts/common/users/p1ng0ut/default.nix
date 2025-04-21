@@ -9,7 +9,7 @@
         "audio"
 	"docker"
 	"git"
-	"networkmanager":
+	"networkmanager"
 	"podman"
 	"video"
 	"wheel"
