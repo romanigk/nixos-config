@@ -94,6 +94,7 @@
       ffmpeg
       file
       gajim
+      gparted
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       jetbrains.webstorm
