@@ -94,6 +94,7 @@
       ffmpeg
       file
       gajim
+      gimp
       gparted
       jetbrains.idea-ultimate
       jetbrains.rust-rover
