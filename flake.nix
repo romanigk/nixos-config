@@ -48,14 +48,31 @@
           inherit inputs outputs;
         };
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/pulse15-gen1
           nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
+        ];
+      };
+
+      thinkpad25 = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+        };
+        modules = [
+          ./nixos/thinkpad25
         ];
       };
     };
 
     homeConfigurations = {
       "p1ng0ut@pulse15-gen1" = lib.homeManagerConfiguration {
+        modules = [./home-manager/home.nix];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = {
+          inherit inputs outputs;
+        };
+      };
+
+      "p1ng0ut@thinkpad25" = lib.homeManagerConfiguration {
         modules = [./home-manager/home.nix];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
