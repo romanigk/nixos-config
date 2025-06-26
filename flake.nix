@@ -59,7 +59,6 @@
         };
         modules = [
           ./nixos/thinkpad25
-          nixos-hardware.nixosModules.lenovo-thinkpad-x1-anniversary-25
         ];
       };
     };
