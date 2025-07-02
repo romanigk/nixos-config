@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ../common
     ./hardware-configuration.nix
   ];
 
@@ -59,7 +60,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
 
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
