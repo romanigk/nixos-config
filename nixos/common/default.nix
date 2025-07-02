@@ -83,20 +83,9 @@
       #media-session.enable = true;
     };
 
-    printing.enable = true;
-
-    xserver = {
-      enable = true;
-
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-
-      xkb = {
-        layout = "de";
-        variant = "";
-      };
-    };
-  };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+ };
 
   console.keyMap = "de";
 
