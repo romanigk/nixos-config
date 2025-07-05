@@ -7,7 +7,7 @@ Seit einiger Zeit beschäftige ich mich sporadisch mit NixOS und ich habe bereit
 Diese NixOS-Konfiguration ist wie folgt strukturiert:
 
 - `flake.nix`: Haupteinstiegspunkt der Konfiguration, definiert Inputs und Outputs
-- `nixos/`: NixOS-spezifische Konfigurationen
+- `hosts/`: NixOS-spezifische Konfigurationen
   - `common/`: Gemeinsame Konfiguration für alle Systeme
   - `pulse15-gen1/`: Spezifische Konfiguration für den Tuxedo Pulse 15 Gen1 Laptop
   - `thinkpad25/`: Spezifische Konfiguration für den ThinkPad 25 Laptop
@@ -41,6 +41,11 @@ Wobei `hostname` entweder `pulse15-gen1` oder `thinkpad25` ist.
 ```bash
 nix flake update
 ```
+
+## Entwicklungsrichtlinien
+
+- Commit-Nachrichten sollten auf Englisch verfasst werden
+- Versuche, aussagekräftige Commit-Nachrichten zu schreiben, die die Änderungen klar beschreiben
 
 ## Hauptfunktionen
 
