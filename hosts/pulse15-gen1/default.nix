@@ -30,6 +30,7 @@
     grim
     slurp
     swaynotificationcenter
+    kitty
   ];
 
   system.stateVersion = "23.11";
