@@ -13,11 +13,8 @@
 
   networking.hostName = "pulse15-gen1";
 
-  # Override GNOME with Hyprland for this host
+  # Hyprland configuration (no need to override GNOME anymore)
   services = {
-    displayManager.gdm.enable = lib.mkForce false;
-    desktopManager.gnome.enable = lib.mkForce false;
-
     # Enable SDDM for Hyprland
     displayManager.sddm.enable = true;
     displayManager.sddm.wayland.enable = true;

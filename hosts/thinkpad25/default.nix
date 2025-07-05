@@ -17,6 +17,12 @@
 
   time.timeZone = "Europe/Berlin";
 
+  # Add GNOME desktop environment configuration
+  services = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
   users.users.p1ng0ut = {
     createHome = true;
     isNormalUser = true;
@@ -26,6 +32,7 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    gnome-tweaks  # Add GNOME-specific package
   ];
 
   nixpkgs.config.allowUnfree = true;
