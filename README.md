@@ -49,7 +49,7 @@ nix flake update
 
 ## Hauptfunktionen
 
-- GNOME Desktop-Umgebung
+- Desktop-Umgebung: GNOME (thinkpad25), Hyprland (pulse15-gen1)
 - Fish als Standard-Shell
 - Neovim als Standard-Editor
 - Firefox mit Datenschutz-Fokus
