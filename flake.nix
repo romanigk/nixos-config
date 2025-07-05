@@ -48,7 +48,7 @@
           inherit inputs outputs;
         };
         modules = [
-          ./nixos/pulse15-gen1
+          ./hosts/pulse15-gen1
           nixos-hardware.nixosModules.tuxedo-pulse-15-gen2
         ];
       };
@@ -58,7 +58,7 @@
           inherit inputs outputs;
         };
         modules = [
-          ./nixos/thinkpad25
+          ./hosts/thinkpad25
         ];
       };
     };
