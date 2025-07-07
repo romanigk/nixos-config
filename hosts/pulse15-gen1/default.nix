@@ -24,13 +24,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    waybar
-    wofi
-    wl-clipboard
-    grim
-    slurp
-    swaynotificationcenter
+    dunst
     kitty
+    walker
+    waybar
   ];
 
   system.stateVersion = "23.11";
