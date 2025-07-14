@@ -28,6 +28,7 @@
     kitty
     walker
     waybar
+    wofi
   ];
 
   system.stateVersion = "23.11";
