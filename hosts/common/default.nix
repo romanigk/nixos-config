@@ -65,9 +65,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
   };
 
   console.keyMap = "de";
@@ -79,7 +76,6 @@
     neovim
     wget
     tmux
-    gnome-tweaks
   ];
 
   programs = {
