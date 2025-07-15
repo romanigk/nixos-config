@@ -25,6 +25,7 @@
 
   environment.systemPackages = with pkgs; [
     dunst
+    hyprpaper
     kitty
     walker
     waybar
