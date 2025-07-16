@@ -63,32 +63,53 @@
     username = "p1ng0ut";
     homeDirectory = "/home/p1ng0ut";
 
-    packages = with pkgs; [
-      claws-mail
-      dino
-      discord
-      element-desktop
-      ffmpeg
-      file
-      gajim
-      gimp
-      gparted
-      jetbrains.idea-ultimate
-      jetbrains.rust-rover
-      jetbrains.webstorm
-      krita
-      libreoffice-still
-      mediathekview
-      meld
-      mullvad-vpn
-      neomutt
-      signal-desktop
-      slack
-      vlc
-      vscode
-      xdg-utils
-      zoom-us
-    ];
+    packages = with pkgs; let
+      devTools = [
+        jetbrains.idea-ultimate
+        jetbrains.rust-rover
+        jetbrains.webstorm
+        meld
+        vscode
+      ];
+      communication = [
+        discord
+        element-desktop
+        gajim
+        signal-desktop
+        slack
+        zoom-us
+      ];
+      multimedia = [
+        ffmpeg
+        gimp
+        krita
+        mediathekview
+        vlc
+      ];
+      email = [
+        claws-mail
+        neomutt
+      ];
+      messaging = [
+        dino
+      ];
+      systemUtils = [
+        file
+        gparted
+        mullvad-vpn
+        xdg-utils
+      ];
+      officeTools = [
+        libreoffice-still
+      ];
+    in
+      communication
+      ++ devTools
+      ++ email
+      ++ messaging
+      ++ multimedia
+      ++ officeTools
+      ++ systemUtils;
 
     file = {
       ".config/1Password/ssh/agent.toml".source = config/1Password/ssh/agent.toml;
