@@ -33,5 +33,7 @@
     wofi
   ];
 
+  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+
   system.stateVersion = "23.11";
 }
