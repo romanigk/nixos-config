@@ -29,7 +29,7 @@
       flake-registry = "";
       nix-path = config.nix.nixPath;
     };
-    channel.enable = false;
+    channel.enable = true;
 
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
