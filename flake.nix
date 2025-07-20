@@ -8,6 +8,8 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
