@@ -31,7 +31,6 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
-    gnome-tweaks
   ];
 
   nixpkgs.config.allowUnfree = true;
