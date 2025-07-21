@@ -25,13 +25,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    dunst
     hyprpaper
     hyprpolkitagent
-    kitty
-    walker
     waybar
-    wofi
   ];
 
   fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);

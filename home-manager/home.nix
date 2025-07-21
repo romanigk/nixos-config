@@ -98,6 +98,21 @@
         gparted
         mullvad-vpn
         xdg-utils
+        tmux
+        wget
+      ];
+      terminals = [
+        kitty
+      ];
+      launchers = [
+        walker
+        wofi
+      ];
+      notifications = [
+        dunst
+      ];
+      gnomeUtils = [
+        gnome.gnome-tweaks
       ];
       officeTools = [
         libreoffice-still
@@ -109,7 +124,11 @@
       ++ messaging
       ++ multimedia
       ++ officeTools
-      ++ systemUtils;
+      ++ systemUtils
+      ++ terminals
+      ++ launchers
+      ++ notifications
+      ++ gnomeUtils;
 
     file = {
       ".config/1Password/ssh/agent.toml".source = config/1Password/ssh/agent.toml;
