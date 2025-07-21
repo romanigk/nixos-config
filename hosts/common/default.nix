@@ -74,8 +74,9 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
-    wget
+    nix-ld
     tmux
+    wget
   ];
 
   programs = {
@@ -96,6 +97,8 @@
       viAlias = true;
       vimAlias = true;
     };
+
+    nix-ld.enable = true;
   };
 
   hardware = {
