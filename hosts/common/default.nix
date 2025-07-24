@@ -57,6 +57,8 @@
   };
 
   services = {
+    blueman.enable = true;
+
     fwupd.enable = true;
 
     pipewire = {
@@ -102,6 +104,11 @@
   };
 
   hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
     graphics.enable = true;
   };
 
