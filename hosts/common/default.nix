@@ -57,6 +57,8 @@
   };
 
   services = {
+    blueman.enable = true;
+
     fwupd.enable = true;
 
     pipewire = {
@@ -74,8 +76,9 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
-    wget
+    nix-ld
     tmux
+    wget
   ];
 
   programs = {
@@ -96,9 +99,16 @@
       viAlias = true;
       vimAlias = true;
     };
+
+    nix-ld.enable = true;
   };
 
   hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
     graphics.enable = true;
   };
 
