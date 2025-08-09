@@ -37,7 +37,10 @@
     yazi
   ];
 
-  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+  ];
 
   system.stateVersion = "23.11";
 }
