@@ -30,6 +30,7 @@
     hyprpolkitagent
     kitty
     nautilus
+    networkmanagerapplet
     walker
     waybar
     wofi
