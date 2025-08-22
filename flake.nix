@@ -67,7 +67,7 @@
 
     homeConfigurations = {
       "p1ng0ut@pulse15-gen1" = lib.homeManagerConfiguration {
-        modules = [./home-manager/home.nix];
+        modules = [./home-manager/pulse15-gen1.nix];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs;
@@ -75,7 +75,7 @@
       };
 
       "p1ng0ut@thinkpad25" = lib.homeManagerConfiguration {
-        modules = [./home-manager/home.nix];
+        modules = [./home-manager/thinkpad25.nix];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs;
