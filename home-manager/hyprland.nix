@@ -14,6 +14,16 @@
     settings = {
       monitor = ",preferred,auto,auto";
 
+      input = {
+        kb_layout = "us";
+        kb_variant = "intl";
+        follow_mouse = 1;
+        touchpad = {
+          natural_scroll = false;
+        };
+        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+      };
+
       exec-once = [
         "waybar"
         "hyprpaper"
