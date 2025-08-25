@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ./home.nix
+    ./default.nix
     ./hyprland.nix
   ];
 }

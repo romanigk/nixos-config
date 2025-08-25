@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ./home.nix
+    ./default.nix
   ];
 
   # This configuration is for thinkpad25 which uses GNOME
