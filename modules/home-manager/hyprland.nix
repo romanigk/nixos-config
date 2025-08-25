@@ -15,8 +15,9 @@
       monitor = ",preferred,auto,auto";
 
       input = {
-        kb_layout = "us";
-        kb_variant = "intl";
+        kb_layout = "us,de";
+        kb_variant = "intl,";
+        kb_options = "grp:win_space_toggle";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = false;
