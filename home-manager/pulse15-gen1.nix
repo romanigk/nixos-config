@@ -8,6 +8,6 @@
 }: {
   imports = [
     ./default.nix
-    ./hyprland.nix
+    ../modules/home-manager/hyprland.nix
   ];
 }

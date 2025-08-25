@@ -7,7 +7,7 @@
   ...
 }: {
   imports = [
-    ./firefox.nix
+    ../modules/home-manager/firefox.nix
   ];
 
   nixpkgs = {
