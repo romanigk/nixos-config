@@ -56,3 +56,16 @@ nix flake update
 - 1Password-Integration
 - Docker (rootless)
 - Verschiedene Entwicklungstools und Anwendungen
+
+## Tastaturlayout wechseln
+
+Diese Konfiguration unterstützt sowohl US- als auch Deutsche (DE) Tastaturlayouts mit einfachem Wechsel zwischen ihnen.
+
+**Layouts wechseln:** Drücke **Tux + Leertaste** (Super-Taste + Leertaste) um zwischen folgenden Layouts zu wechseln:
+- US English Layout (QWERTY)
+- Deutsches Layout (QWERTZ mit ä, ö, ü, ß)
+
+**Konfiguration:**
+- GNOME Desktop (thinkpad25): Konfiguriert in `/hosts/common/default.nix`
+- Hyprland (pulse15-gen1): Konfiguriert in `/modules/home-manager/hyprland.nix`
+- Konsole (TTY): Verwendet standardmäßig deutsches Layout (`console.keyMap = "de"`)
