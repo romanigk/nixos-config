@@ -67,10 +67,6 @@
         preserve_split = "yes";
       };
 
-      gestures = {
-        workspace_swipe = false;
-      };
-
       "$mod" = "SUPER";
 
       bind = [
