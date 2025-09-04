@@ -28,13 +28,11 @@
     dunst
     hyprpaper
     hyprpolkitagent
-    kitty
     nautilus
     networkmanagerapplet
     walker
     waybar
     wofi
-    yazi
   ];
 
   fonts.packages = with pkgs; [
