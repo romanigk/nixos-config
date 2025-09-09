@@ -29,6 +29,7 @@
         "blueman-applet"
         "dunst"
         "hyprpaper"
+        "waybar"
       ];
 
       general = {
@@ -146,9 +147,67 @@
     LC_CTYPE = "C.UTF-8";
   };
 
-  # Configure Waybar to use proper font fallbacks for icons + ein dezentes Theme
   programs.waybar = {
     enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        tray = { spacing = 8; };
+
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "clock" ];
+        modules-right = [ "pulseaudio" "network" "bluetooth" "backlight" "battery" "tray" ];
+
+        "hyprland/workspaces" = {
+          on-click = "activate";
+          format = "{name}";
+          format-icons = [ "" "" ];
+          sort-by-number = true;
+        };
+
+        clock = {
+          format = "{:%a %d.%m. %H:%M}";
+          tooltip = true;
+          tooltip-format = "{:%A, %d. %B %Y, %H:%M:%S}";
+        };
+
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-muted = "";
+          format-icons = { default = [ "" "" "" ]; };
+          on-click = "pavucontrol";
+          scroll-step = 2;
+        };
+
+        network = {
+          format-wifi = "  {essid} ({signal}%)";
+          format-ethernet = "󰈁  {ipaddr}";
+          format-disconnected = "󰖪";
+          tooltip = true;
+        };
+
+        bluetooth = {
+          format = " {status}";
+          format-connected = " {num_connections}";
+          tooltip = true;
+        };
+
+        backlight = {
+          format = " {percent}%";
+        };
+
+        battery = {
+          states = { warning = 20; critical = 10; };
+          format = "{icon} {percent}%";
+          format-charging = " {percent}%";
+          format-plugged = " {percent}%";
+          format-icons = [ "" "" "" "" "" ];
+          tooltip = true;
+        };
+      };
+    };
     style = ''
       /* Farben (dezentes, neutrales Schema) */
       @define-color bg        #1e1e2e;
