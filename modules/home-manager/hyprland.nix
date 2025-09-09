@@ -26,9 +26,10 @@
       };
 
       exec-once = [
-        "waybar"
-        "hyprpaper"
+        "blueman-applet"
         "dunst"
+        "hyprpaper"
+        "waybar"
       ];
 
       general = {
