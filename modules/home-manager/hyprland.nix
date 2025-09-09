@@ -136,6 +136,8 @@
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
     nerd-fonts.symbols-only
+    noto-fonts
+    noto-fonts-emoji
   ];
 
   # Configure Waybar to use proper font fallbacks for icons
@@ -144,7 +146,7 @@
     style = ''
       * {
         font-family: "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Symbols Nerd Font", "Symbols Nerd Font Mono", "Noto Color Emoji";
-        font-size: 12pt;
+        font-size: 10pt;
       }
 
       #workspaces button,
@@ -156,6 +158,126 @@
       #bluetooth,
       #tray {
         font-family: "Symbols Nerd Font", "Symbols Nerd Font Mono", "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Noto Color Emoji";
+      }
+    '';
+  };
+
+  # Einheitliche UTF-8-Umgebung für den User (behebt häufige Encoding-Probleme in Waybar)
+  home.sessionVariables = {
+    LANG = "C.UTF-8";
+    LC_ALL = "C.UTF-8";
+    LC_CTYPE = "C.UTF-8";
+  };
+
+  # Configure Waybar to use proper font fallbacks for icons + ein dezentes Theme
+  programs.waybar = {
+    enable = true;
+    style = ''
+      /* Farben (dezentes, neutrales Schema) */
+      @define-color bg        #1e1e2e;
+      @define-color bg-alt    #11111b;
+      @define-color surface   #313244;
+      @define-color text      #cdd6f4;
+      @define-color subtext   #a6adc8;
+      @define-color accent    #89b4fa;
+      @define-color ok        #a6e3a1;
+      @define-color warn      #f9e2af;
+      @define-color crit      #f38ba8;
+
+      * {
+        font-family: "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Symbols Nerd Font", "Symbols Nerd Font Mono", "Noto Color Emoji";
+        font-size: 12pt;
+        min-height: 0;
+      }
+
+      window#waybar {
+        background: alpha(@bg, 0.85);
+        color: @text;
+        border: 1px solid alpha(@surface, 0.8);
+        border-radius: 12px;
+        padding: 4px 8px;
+        margin: 6px 8px;
+      }
+
+      /* Allgemeine Modul-Optik */
+      #workspaces,
+      #tray,
+      #clock,
+      #battery,
+      #network,
+      #pulseaudio,
+      #backlight,
+      #bluetooth {
+        background: alpha(@surface, 0.55);
+        border-radius: 10px;
+        padding: 2px 8px;
+        margin: 0 4px;
+      }
+
+      /* Spezial-Font-Fallback für symbol-lastige Module */
+      #workspaces button,
+      #battery,
+      #network,
+      #pulseaudio,
+      #backlight,
+      #clock,
+      #bluetooth,
+      #tray {
+        font-family: "Symbols Nerd Font", "Symbols Nerd Font Mono", "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Noto Color Emoji";
+      }
+
+      /* Workspaces */
+      #workspaces {
+        padding: 2px 4px;
+      }
+      #workspaces button {
+        color: @subtext;
+        padding: 0 8px;
+        margin: 0 2px;
+        border-radius: 8px;
+        background: transparent;
+      }
+      #workspaces button.active {
+        color: @text;
+        background: alpha(@accent, 0.18);
+      }
+      #workspaces button:hover {
+        background: alpha(@accent, 0.28);
+        color: @text;
+      }
+
+      /* Statusfarben */
+      #battery.charging,
+      #battery.plugged {
+        color: @ok;
+      }
+      #battery.warning:not(.charging) {
+        color: @warn;
+      }
+      #battery.critical:not(.charging) {
+        color: @crit;
+      }
+
+      #network.disconnected {
+        color: @warn;
+      }
+
+      #pulseaudio.muted {
+        color: @subtext;
+      }
+
+      /* Tray */
+      #tray > .passive {
+        opacity: 0.6;
+      }
+      #tray > .needs-attention {
+        color: @warn;
+      }
+
+      /* Uhr etwas hervorheben */
+      #clock {
+        background: alpha(@accent, 0.16);
+        color: @text;
       }
     '';
   };
