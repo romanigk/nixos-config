@@ -29,7 +29,6 @@
         "blueman-applet"
         "dunst"
         "hyprpaper"
-        "waybar"
       ];
 
       general = {
@@ -139,28 +138,6 @@
     noto-fonts
     noto-fonts-emoji
   ];
-
-  # Configure Waybar to use proper font fallbacks for icons
-  programs.waybar = {
-    enable = true;
-    style = ''
-      * {
-        font-family: "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Symbols Nerd Font", "Symbols Nerd Font Mono", "Noto Color Emoji";
-        font-size: 10pt;
-      }
-
-      #workspaces button,
-      #battery,
-      #network,
-      #pulseaudio,
-      #backlight,
-      #clock,
-      #bluetooth,
-      #tray {
-        font-family: "Symbols Nerd Font", "Symbols Nerd Font Mono", "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Noto Color Emoji";
-      }
-    '';
-  };
 
   # Einheitliche UTF-8-Umgebung für den User (behebt häufige Encoding-Probleme in Waybar)
   home.sessionVariables = {
