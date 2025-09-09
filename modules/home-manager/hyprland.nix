@@ -130,4 +130,33 @@
       ];
     };
   };
+
+  # Install fonts for the user (moved from system to Home Manager)
+  home.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.symbols-only
+  ];
+
+  # Configure Waybar to use proper font fallbacks for icons
+  programs.waybar = {
+    enable = true;
+    style = ''
+      * {
+        font-family: "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Symbols Nerd Font", "Symbols Nerd Font Mono", "Noto Color Emoji";
+        font-size: 12pt;
+      }
+
+      #workspaces button,
+      #battery,
+      #network,
+      #pulseaudio,
+      #backlight,
+      #clock,
+      #bluetooth,
+      #tray {
+        font-family: "Symbols Nerd Font", "Symbols Nerd Font Mono", "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Noto Color Emoji";
+      }
+    '';
+  };
 }
