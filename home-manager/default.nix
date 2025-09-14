@@ -59,18 +59,13 @@
     };
   };
 
+  fonts.fontconfig.enable = true;
+
   home = {
     username = "p1ng0ut";
     homeDirectory = "/home/p1ng0ut";
 
     packages = with pkgs; let
-      devTools = [
-        jetbrains.idea-ultimate
-        jetbrains.rust-rover
-        jetbrains.webstorm
-        meld
-        vscode
-      ];
       communication = [
         discord
         element-desktop
@@ -79,6 +74,31 @@
         slack
         zoom-us
       ];
+      devTools = [
+        jetbrains.idea-ultimate
+        jetbrains.rust-rover
+        jetbrains.webstorm
+        meld
+        vscode
+      ];
+      email = [
+        claws-mail
+        neomutt
+      ];
+      fonts = [
+        font-awesome
+        liberation_ttf
+        mplus-outline-fonts.githubRelease
+        nerd-fonts.fira-code
+        nerd-fonts.droid-sans-mono
+        nerd-fonts.symbols-only
+        noto-fonts
+        noto-fonts-emoji
+        proggyfonts
+      ];
+      messaging = [
+        dino
+      ];
       multimedia = [
         ffmpeg
         gimp
@@ -86,12 +106,8 @@
         mediathekview
         vlc
       ];
-      email = [
-        claws-mail
-        neomutt
-      ];
-      messaging = [
-        dino
+      officeTools = [
+        libreoffice-still
       ];
       systemUtils = [
         file
@@ -99,13 +115,11 @@
         mullvad-vpn
         xdg-utils
       ];
-      officeTools = [
-        libreoffice-still
-      ];
     in
       communication
       ++ devTools
       ++ email
+      ++ fonts
       ++ messaging
       ++ multimedia
       ++ officeTools

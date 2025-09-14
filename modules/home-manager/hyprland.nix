@@ -131,15 +131,6 @@
     };
   };
 
-  # Install fonts for the user (moved from system to Home Manager)
-  home.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.droid-sans-mono
-    nerd-fonts.symbols-only
-    noto-fonts
-    noto-fonts-emoji
-  ];
-
   # Einheitliche UTF-8-Umgebung für den User (behebt häufige Encoding-Probleme in Waybar)
   home.sessionVariables = {
     LANG = "C.UTF-8";
@@ -154,16 +145,16 @@
         layer = "top";
         position = "top";
         height = 30;
-        tray = { spacing = 3; };
+        tray = {spacing = 3;};
 
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "pulseaudio" "network" "bluetooth" "backlight" "battery" "tray" ];
+        modules-left = ["hyprland/workspaces"];
+        modules-center = ["clock"];
+        modules-right = ["pulseaudio" "network" "bluetooth" "backlight" "battery" "tray"];
 
         "hyprland/workspaces" = {
           on-click = "activate";
           format = "{name}";
-          format-icons = [ "" "" ];
+          format-icons = ["" ""];
           sort-by-number = true;
         };
 
@@ -176,7 +167,7 @@
         pulseaudio = {
           format = "{icon} {volume}%";
           format-muted = "";
-          format-icons = { default = [ "" "" "" ]; };
+          format-icons = {default = ["" "" ""];};
           on-click = "pavucontrol";
           scroll-step = 2;
         };
@@ -199,11 +190,14 @@
         };
 
         battery = {
-          states = { warning = 20; critical = 10; };
+          states = {
+            warning = 20;
+            critical = 10;
+          };
           format = "{icon} {percent}%";
           format-charging = " {percent}%";
           format-plugged = " {percent}%";
-          format-icons = [ "" "" "" "" "" ];
+          format-icons = ["" "" "" "" ""];
           tooltip = true;
         };
       };
