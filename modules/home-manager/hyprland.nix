@@ -154,7 +154,7 @@
         layer = "top";
         position = "top";
         height = 30;
-        tray = { spacing = 8; };
+        tray = { spacing = 3; };
 
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
@@ -222,7 +222,7 @@
 
       * {
         font-family: "FiraCode Nerd Font", "DroidSansMono Nerd Font", "Symbols Nerd Font", "Symbols Nerd Font Mono", "Noto Color Emoji";
-        font-size: 12pt;
+        font-size: 10pt;
         min-height: 0;
       }
 
