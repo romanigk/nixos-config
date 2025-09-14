@@ -83,7 +83,6 @@
       ];
       email = [
         claws-mail
-        neomutt
       ];
       fonts = [
         font-awesome

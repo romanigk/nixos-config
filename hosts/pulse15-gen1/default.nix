@@ -24,16 +24,5 @@
     xwayland.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    dunst
-    hyprpaper
-    hyprpolkitagent
-    nautilus
-    networkmanagerapplet
-    walker
-    waybar
-    wofi
-  ];
-
   system.stateVersion = "23.11";
 }

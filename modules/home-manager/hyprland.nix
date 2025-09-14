@@ -135,6 +135,19 @@
     };
   };
 
+  home.packages = with pkgs; [
+    dunst
+    hyprpaper
+    hyprpolkitagent
+    kitty
+    nautilus
+    networkmanagerapplet
+    walker
+    waybar
+    wofi
+    yazi
+  ];
+
   # Einheitliche UTF-8-Umgebung für den User (behebt häufige Encoding-Probleme in Waybar)
   home.sessionVariables = {
     LANG = "C.UTF-8";
