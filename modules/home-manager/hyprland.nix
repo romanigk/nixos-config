@@ -25,6 +25,23 @@
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
       };
 
+      device = [
+        {
+          # Internal laptop keyboard - example for ThinkPad
+          name = "internal-german-laptop-keyboard";
+          kb_layout = "de,us";
+          kb_variant = ",intl";
+          kb_options = "grp:win_space_toggle";
+        }
+        {
+          # External keyboard - US layout
+          name = "external-keyboard-us-layout";
+          kb_layout = "us,de";
+          kb_variant = "intl,";
+          kb_options = "grp:alt_shift_toggle";
+        }
+      ];
+
       exec-once = [
         "blueman-applet"
         "dunst"
