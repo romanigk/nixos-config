@@ -92,7 +92,7 @@
         nerd-fonts.droid-sans-mono
         nerd-fonts.symbols-only
         noto-fonts
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         proggyfonts
       ];
       messaging = [
@@ -158,15 +158,15 @@
 
     git = {
       enable = true;
-      userEmail = "p1ng0ut@mailbox.org";
-      userName = "Robert Manigk";
-      extraConfig = {
+      settings = {
+        alias = {
+          adog = "log --all --decorate --oneline --graph";
+        };
         core.editor = "nvim";
         init.defaultBranch = "main";
         pull.ff = "only";
-      };
-      aliases = {
-        adog = "log --all --decorate --oneline --graph";
+        user.email = "p1ng0ut@mailbox.org";
+        user.name = "Robert Manigk";
       };
     };
 
