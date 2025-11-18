@@ -165,12 +165,9 @@
     yazi
   ];
 
-  # Einheitliche UTF-8-Umgebung für den User (behebt häufige Encoding-Probleme in Waybar)
-  home.sessionVariables = {
-    LANG = "C.UTF-8";
-    LC_ALL = "C.UTF-8";
-    LC_CTYPE = "C.UTF-8";
-  };
+  # Hinweis: Keine Überschreibung von LANG/LC_* hier, damit die Session
+  # die systemweite Locale (de_DE.UTF-8) erbt. Falls nötig, kann man
+  # gezielt nur LC_CTYPE temporär setzen, ohne LC_ALL zu verwenden.
 
   programs.waybar = {
     enable = true;
