@@ -12,7 +12,9 @@ Diese NixOS-Konfiguration ist wie folgt strukturiert:
   - `pulse15-gen1/`: Spezifische Konfiguration für den Tuxedo Pulse 15 Gen1 Laptop
   - `thinkpad25/`: Spezifische Konfiguration für den ThinkPad 25 Laptop
 - `home-manager/`: Home-Manager-Konfigurationen für den Benutzer
-  - `home.nix`: Hauptkonfiguration für Home-Manager
+  - `default.nix`: Hauptkonfiguration für Home-Manager
+  - `pulse15-gen1.nix`: Host-spezifische HM-Konfiguration (Hyprland)
+  - `thinkpad25.nix`: Host-spezifische HM-Konfiguration (GNOME)
   - `firefox.nix`: Firefox-spezifische Konfiguration
 - `modules/`: Wiederverwendbare Module für NixOS und Home-Manager
 - `overlays/`: Anpassungen und Erweiterungen für Pakete
@@ -42,10 +44,26 @@ Wobei `hostname` entweder `pulse15-gen1` oder `thinkpad25` ist.
 nix flake update
 ```
 
+### Formatierung und Checks
+
+- Code formatieren (nutzt den im Flake hinterlegten Formatter `alejandra`):
+
+  ```bash
+  nix fmt
+  ```
+
+- Flake prüfen (empfohlen vor Änderungen/Rebuilds):
+
+  ```bash
+  nix flake check
+  ```
+
 ## Entwicklungsrichtlinien
 
 - Commit-Nachrichten sollten auf Englisch verfasst werden
 - Versuche, aussagekräftige Commit-Nachrichten zu schreiben, die die Änderungen klar beschreiben
+
+Hinweis: Dieses README ist überwiegend auf Deutsch verfasst, Commit‑Nachrichten jedoch auf Englisch.
 
 ## Hauptfunktionen
 
@@ -69,3 +87,24 @@ Diese Konfiguration unterstützt sowohl US- als auch Deutsche (DE) Tastaturlayou
 - GNOME Desktop (thinkpad25): Konfiguriert in `/hosts/common/default.nix`
 - Hyprland (pulse15-gen1): Konfiguriert in `/modules/home-manager/hyprland.nix`
 - Konsole (TTY): Verwendet standardmäßig deutsches Layout (`console.keyMap = "de"`)
+
+### Hyprland Hinweise & Troubleshooting
+
+- Das Layout‑Toggle (Super+Leertaste) ist in Hyprland ebenfalls konfiguriert (`kb_options = "grp:win_space_toggle"`).
+- Geräte‑spezifische Keymaps: In `modules/home-manager/hyprland.nix` gibt es Beispiel‑Einträge unter `device = [ ... ]`.
+  Diese benötigen die exakten Gerätenamen deiner Tastaturen. Ermittele diese mit:
+
+  ```bash
+  hyprctl devices | grep -E "(Keyboard|name)"
+  ```
+
+  Trage anschließend die genauen Namen in den `device`‑Blöcken ein oder entferne die Beispiel‑Einträge, falls nicht benötigt.
+
+---
+
+## English TL;DR
+
+- This repo contains my NixOS + Home‑Manager setup (German README, English commit messages).
+- Rebuild system: `sudo nixos-rebuild switch --flake .#<hostname>` (hosts: `pulse15-gen1`, `thinkpad25`).
+- Apply Home‑Manager: `home-manager switch --flake .#p1ng0ut@<hostname>`.
+- Update inputs: `nix flake update`; check flake: `nix flake check`; format code: `nix fmt` (Alejandra).
