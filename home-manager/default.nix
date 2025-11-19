@@ -66,9 +66,9 @@
 
     packages = with pkgs; let
       communication = [
+        dino
         discord
         element-desktop
-        gajim
         signal-desktop
         slack
         zoom-us
@@ -94,9 +94,6 @@
         noto-fonts-color-emoji
         proggyfonts
       ];
-      messaging = [
-        dino
-      ];
       multimedia = [
         ffmpeg
         gimp
@@ -118,7 +115,6 @@
       ++ devTools
       ++ email
       ++ fonts
-      ++ messaging
       ++ multimedia
       ++ officeTools
       ++ systemUtils;
