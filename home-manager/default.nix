@@ -174,19 +174,9 @@
       ];
     };
 
-    neomutt.enable = true;
-
     neovim.plugins = [
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     ];
-
-    mbsync.enable = true;
-    notmuch = {
-      enable = true;
-      hooks = {
-        preNew = "mbsync --all";
-      };
-    };
   };
 
   services.gpg-agent = {
