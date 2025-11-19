@@ -12,6 +12,7 @@
 
   nixpkgs = {
     overlays = [
+      inputs.niri.overlays.niri
       outputs.overlays.additions
       outputs.overlays.modifications
     ];

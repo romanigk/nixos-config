@@ -8,6 +8,7 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    niri.url = "github:sodiboo/niri-flake";
     hyprland.url = "github:hyprwm/Hyprland";
 
     home-manager = {
