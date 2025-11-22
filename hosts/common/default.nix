@@ -136,7 +136,7 @@
       description = "Robert Manigk";
       extraGroups = ["networkmanager" "wheel" "docker"];
       packages = [
-        inputs.home-manager.packages.${pkgs.system}.default
+        inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
     };
   };
