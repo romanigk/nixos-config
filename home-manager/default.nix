@@ -108,6 +108,7 @@
         file
         gparted
         mullvad-vpn
+        pandoc
         xdg-utils
       ];
     in
