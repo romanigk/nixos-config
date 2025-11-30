@@ -69,6 +69,7 @@
         dino
         discord
         element-desktop
+        fluffychat
         signal-desktop
         slack
         zoom-us
