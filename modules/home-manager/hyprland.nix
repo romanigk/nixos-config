@@ -145,10 +145,6 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
-
-      windowrulev2 = [
-        "suppressevent maximize, class:.*" # You'll probably like this.
-      ];
     };
   };
 
