@@ -14,19 +14,8 @@
   networking.hostName = "pulse15-gen1";
 
   services = {
-    displayManager = {
-      sddm.enable = true;
-      sddm.wayland.enable = true;
-      greetd = {
-        enable = true;
-        settings = {
-          default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
-            user = "greeter";
-          };
-        };
-      };
-    };
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
   };
 
   programs = {
