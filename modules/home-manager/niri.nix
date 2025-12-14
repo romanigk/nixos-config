@@ -8,9 +8,9 @@
 }: {
   programs = {
     waybar = {
-        enable = true;
-      };
+      enable = true;
+    };
   };
 
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [];
 }
