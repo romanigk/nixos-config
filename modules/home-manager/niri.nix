@@ -15,17 +15,5 @@
       };
   };
 
-  home.packages = with pkgs; [
-    dunst
-    grim
-    kitty
-    nautilus
-    networkmanagerapplet
-    slurp
-    walker
-    waybar
-    wl-clipboard
-    wofi
-    yazi
-  ];
+  home.packages = with pkgs; [ ];
 }
