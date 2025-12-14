@@ -14,20 +14,30 @@
   networking.hostName = "pulse15-gen1";
 
   services = {
-    displayManager.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
-          user = "greeter";
+    displayManager = {
+      sddm.enable = true;
+      sddm.wayland.enable = true;
+      greetd = {
+        enable = true;
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session";
+            user = "greeter";
+          };
         };
       };
     };
   };
 
-  programs.niri = {
-    enable = true;
-    package = inputs.niri.packages."${pkgs.stdenv.hostPlatform.system}".niri-stable;
+  programs = {
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
+      xwayland.enable = true;
+    };
+    niri = {
+      enable = true;
+    };
   };
 
   system.stateVersion = "23.11";

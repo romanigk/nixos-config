@@ -7,9 +7,6 @@
   ...
 }: {
   programs = {
-    niri = {
-      enable = true;
-    };
     waybar = {
         enable = true;
       };
