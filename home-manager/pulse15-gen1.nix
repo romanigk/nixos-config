@@ -9,5 +9,6 @@
   imports = [
     ./default.nix
     ../modules/home-manager/hyprland.nix
+    ../modules/home-manager/niri.nix
   ];
 }
