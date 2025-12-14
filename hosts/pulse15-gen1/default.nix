@@ -13,6 +13,8 @@
 
   networking.hostName = "pulse15-gen1";
 
+  nix.settings.trusted-users = [ "root" "p1ng0ut" ];
+
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
   ];
