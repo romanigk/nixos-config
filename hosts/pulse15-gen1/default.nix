@@ -28,7 +28,9 @@
       package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
       xwayland.enable = true;
     };
-    niri = {enable = false;};
+    niri = {
+      enable = true;
+    };
   };
 
   system.stateVersion = "23.11";
