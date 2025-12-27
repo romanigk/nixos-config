@@ -75,7 +75,7 @@
         zoom-us
       ];
       devTools = [
-        jetbrains.idea-ultimate
+        jetbrains.idea
         jetbrains.rust-rover
         jetbrains.webstorm
         meld
