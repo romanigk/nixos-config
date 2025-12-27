@@ -48,9 +48,9 @@
         "hyprpaper"
         "waybar"
         "[workspace 1 silent] 1password"
-        "[workspace 2 silent] idea-ultimate"
-        "[workspace 3 silent] firefox"
-        "[workspace 4 silent] kitty"
+        "[workspace 2 silent] idea"
+        "[workspace 3 silent] kitty"
+        "[workspace 4 silent] firefox"
       ];
 
       general = {
