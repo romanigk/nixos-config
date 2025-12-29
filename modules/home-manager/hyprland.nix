@@ -155,6 +155,7 @@
     kitty
     nautilus
     networkmanagerapplet
+    pavucontrol
     walker
     waybar
     wofi
