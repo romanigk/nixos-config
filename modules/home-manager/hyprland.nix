@@ -156,8 +156,10 @@
     nautilus
     networkmanagerapplet
     pavucontrol
+    pipewire
     walker
     waybar
+    wireplumber
     wofi
     yazi
   ];
