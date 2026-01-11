@@ -75,6 +75,7 @@
         zoom-us
       ];
       devTools = [
+        claude-code
         jetbrains.idea
         jetbrains.rust-rover
         jetbrains.webstorm
