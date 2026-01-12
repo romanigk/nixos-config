@@ -77,7 +77,7 @@
       devTools = [
         claude-code
         jetbrains.idea
-        jetbrains.pycharm-professional
+        jetbrains.pycharm
         jetbrains.rust-rover
         jetbrains.webstorm
         meld
