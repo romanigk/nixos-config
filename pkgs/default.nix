@@ -1,5 +1,3 @@
-# Custom packages, that can be defined similarly to ones from nixpkgs
-# You can build them using 'nix build .#example'
-pkgs: {
-  # example = pkgs.callPackage ./example { };
-}
+# Custom packages available via overlays.additions and flake outputs.packages
+# Currently empty - add packages here when needed.
+pkgs: {}
