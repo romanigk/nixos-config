@@ -8,7 +8,7 @@
 }: {
   imports = [
     ./default.nix
-    ../modules/home-manager/hyprland.nix
-    ../modules/home-manager/niri.nix
+    ./modules/hyprland.nix
+    ./modules/niri.nix
   ];
 }
