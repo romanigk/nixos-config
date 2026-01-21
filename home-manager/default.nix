@@ -7,7 +7,11 @@
   ...
 }: {
   imports = [
+    ./modules/email.nix
     ./modules/firefox.nix
+    ./modules/git.nix
+    ./modules/packages.nix
+    ./modules/shell.nix
   ];
 
   nixpkgs = {
@@ -21,117 +25,15 @@
     };
   };
 
-  accounts.email = {
-    accounts."mailbox.org" = {
-      primary = true;
-      realName = "Robert Manigk";
-      address = "romanigk@mailbox.org";
-      aliases = ["p1ng0ut@mailbox.org"];
-
-      userName = "romanigk@mailbox.org";
-      passwordCommand = "op read op://private/mailbox.org/password";
-
-      imap = {
-        host = "imap.mailbox.org";
-        port = 993;
-      };
-      smtp = {
-        host = "smtp.mailbox.org";
-        port = 465;
-      };
-      mbsync = {
-        enable = true;
-        create = "maildir";
-      };
-      neomutt = {
-        enable = true;
-        mailboxType = "imap";
-      };
-      notmuch.enable = true;
-      signature = {
-        text = ''
-          Robert Manigk
-          as a private person
-        '';
-        showSignature = "append";
-      };
-    };
-  };
-
-  fonts.fontconfig.enable = true;
-
   home = {
     username = "p1ng0ut";
     homeDirectory = "/home/p1ng0ut";
-
-    packages = with pkgs; let
-      communication = [
-        dino
-        discord
-        element-desktop
-        fluffychat
-        signal-desktop
-        slack
-        zoom-us
-      ];
-      jetbrainsWithAI = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "org.jetbrains.junie"];
-      devTools = [
-        claude-code
-        (jetbrainsWithAI "idea")
-        (jetbrainsWithAI "pycharm")
-        (jetbrainsWithAI "rust-rover")
-        (jetbrainsWithAI "webstorm")
-        meld
-        vscode
-      ];
-      email = [
-        claws-mail
-      ];
-      fonts = [
-        font-awesome
-        liberation_ttf
-        mplus-outline-fonts.githubRelease
-        nerd-fonts.fira-code
-        nerd-fonts.droid-sans-mono
-        nerd-fonts.symbols-only
-        noto-fonts
-        noto-fonts-color-emoji
-        proggyfonts
-      ];
-      multimedia = [
-        ffmpeg
-        gimp
-        krita
-        mediathekview
-        vlc
-      ];
-      officeTools = [
-        libreoffice-still
-      ];
-      systemUtils = [
-        file
-        gparted
-        mullvad-vpn
-        pandoc
-        xdg-utils
-      ];
-    in
-      communication
-      ++ devTools
-      ++ email
-      ++ fonts
-      ++ multimedia
-      ++ officeTools
-      ++ systemUtils;
 
     file = {
       ".config/1Password/ssh/agent.toml".source = config/1Password/ssh/agent.toml;
       ".ssh/config".text = ''
         Host *
           IdentityAgent ~/.1password/agent.sock
-      '';
-      ".config/fish/config.fish".text = ''
-        direnv hook fish | source
       '';
     };
 
@@ -147,26 +49,6 @@
 
     chromium = {
       enable = true;
-    };
-
-    direnv = {
-      enable = true;
-      enableFishIntegration = true;
-      nix-direnv.enable = true;
-    };
-
-    git = {
-      enable = true;
-      settings = {
-        alias = {
-          adog = "log --all --decorate --oneline --graph";
-        };
-        core.editor = "nvim";
-        init.defaultBranch = "main";
-        pull.ff = "only";
-        user.email = "p1ng0ut@mailbox.org";
-        user.name = "Robert Manigk";
-      };
     };
 
     vscode = {
