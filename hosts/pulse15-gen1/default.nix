@@ -35,5 +35,7 @@
     };
   };
 
-  system.stateVersion = "23.11";
+  # Standardized across all hosts for consistency.
+  # Changing stateVersion may affect stateful services - test after switching.
+  system.stateVersion = "25.05";
 }

@@ -20,5 +20,7 @@
     gnome-tweaks
   ];
 
+  # Standardized across all hosts for consistency.
+  # New hosts should use this same version.
   system.stateVersion = "25.05";
 }
