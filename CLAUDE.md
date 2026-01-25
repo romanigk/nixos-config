@@ -11,6 +11,13 @@ When you make changes to the home-manager configuration (any files in `home-mana
 
 Do not skip these steps. The user expects changes to be committed and applied automatically.
 
+When you make changes to the NixOS configuration (any files in `hosts/` or related nix files that affect NixOS), you MUST:
+
+1. Commit the changes to git with an appropriate commit message
+2. Prompt the user to apply the configuration by running `sudo nixos-rebuild switch --flake .`
+
+Do not run the nixos-rebuild command without user confirmation since it requires sudo.
+
 ## Repository Overview
 
 This is a NixOS and Home Manager flake-based configuration for two hosts: `pulse15-gen1` (Tuxedo Pulse 15 with Hyprland/Niri) and `thinkpad25` (ThinkPad 25 with GNOME). The configuration uses a modular structure with shared common settings and host-specific customizations.
