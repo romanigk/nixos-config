@@ -18,6 +18,9 @@
     ];
 
     binds = with config.lib.niri.actions; {
+      # Help
+      "Mod+Shift+Slash".action = show-hotkey-overlay;
+
       # Application launchers
       "Mod+Return".action = spawn "alacritty";
       "Mod+D".action = spawn "fuzzel";
