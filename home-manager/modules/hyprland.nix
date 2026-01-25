@@ -47,10 +47,10 @@
         "dunst"
         "hyprpaper"
         "waybar"
-        "[workspace 1 silent] 1password"
-        "[workspace 2 silent] idea"
-        "[workspace 3 silent] kitty"
-        "[workspace 4 silent] firefox"
+        "[workspace 1 silent] idea"
+        "[workspace 2 silent] kitty"
+        "[workspace 3 silent] firefox"
+        "[workspace 4 silent] 1password"
       ];
 
       general = {
