@@ -65,6 +65,10 @@
       "Mod+Comma".action = consume-or-expel-window-left;
       "Mod+Period".action = consume-or-expel-window-right;
 
+      # Floating windows
+      "Mod+V".action = toggle-window-floating;
+      "Mod+Shift+V".action = switch-focus-between-floating-and-tiling;
+
       # Layout controls
       "Mod+R".action = switch-preset-column-width;
       "Mod+F".action = maximize-column;
