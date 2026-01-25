@@ -61,6 +61,10 @@
       "Mod+8".action = focus-workspace 8;
       "Mod+9".action = focus-workspace 9;
 
+      # Column management
+      "Mod+Comma".action = consume-or-expel-window-left;
+      "Mod+Period".action = consume-or-expel-window-right;
+
       # Layout controls
       "Mod+R".action = switch-preset-column-width;
       "Mod+F".action = maximize-column;
