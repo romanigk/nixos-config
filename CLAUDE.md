@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Claude Code Instructions
+
+When you make changes to the home-manager configuration (any files in `home-manager/` or related nix files that affect home-manager), you MUST:
+
+1. Commit the changes to git with an appropriate commit message
+2. Run `home-manager switch --flake .` to apply the configuration
+
+Do not skip these steps. The user expects changes to be committed and applied automatically.
+
 ## Repository Overview
 
 This is a NixOS and Home Manager flake-based configuration for two hosts: `pulse15-gen1` (Tuxedo Pulse 15 with Hyprland/Niri) and `thinkpad25` (ThinkPad 25 with GNOME). The configuration uses a modular structure with shared common settings and host-specific customizations.
