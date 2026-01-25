@@ -16,13 +16,13 @@
       slack
       zoom-us
     ];
-    jetbrainsWithAI = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "org.jetbrains.junie"];
+    jetbrainsWithPreInstalledPlugins = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "org.jetbrains.junie" "nix-idea"];
     devTools = [
       claude-code
-      (jetbrainsWithAI "idea")
-      (jetbrainsWithAI "pycharm")
-      (jetbrainsWithAI "rust-rover")
-      (jetbrainsWithAI "webstorm")
+      (jetbrainsWithPreInstalledPlugins "idea")
+      (jetbrainsWithPreInstalledPlugins "pycharm")
+      (jetbrainsWithPreInstalledPlugins "rust-rover")
+      (jetbrainsWithPreInstalledPlugins "webstorm")
       meld
       vscode
     ];
