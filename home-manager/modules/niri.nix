@@ -15,6 +15,7 @@
 
     spawn-at-startup = [
       {command = ["waybar"];}
+      {command = ["1password"];}
     ];
 
     binds = with config.lib.niri.actions; {
