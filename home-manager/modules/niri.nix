@@ -81,6 +81,8 @@
 
       # Screen lock
       "Mod+Escape".action = spawn "swaylock";
+
+      "Print".action.screenshot-screen = { show-pointer = false; };
     };
 
     layout = {
