@@ -82,7 +82,7 @@
       # Screen lock
       "Mod+Escape".action = spawn "swaylock";
 
-      "Print".action.screenshot-screen = { show-pointer = false; };
+      "Print".action = spawn "niri" "msg" "action" "screenshot";
     };
 
     layout = {
