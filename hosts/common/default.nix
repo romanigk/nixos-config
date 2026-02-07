@@ -104,6 +104,7 @@
     nix-ld
     tmux
     wget
+    wirelesstools
   ];
 
   programs = {
