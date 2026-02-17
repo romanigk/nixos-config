@@ -83,6 +83,10 @@
       "Mod+Escape".action = spawn "swaylock";
 
       "Print".action = spawn "niri" "msg" "action" "screenshot";
+
+      # Brightness controls
+      "XF86MonBrightnessUp".action = spawn "brightnessctl" "set" "+5%";
+      "XF86MonBrightnessDown".action = spawn "brightnessctl" "set" "5%-";
     };
 
     layout = {

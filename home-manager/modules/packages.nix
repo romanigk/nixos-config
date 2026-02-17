@@ -51,6 +51,7 @@
       libreoffice-still
     ];
     systemUtils = [
+      brightnessctl
       file
       gparted
       mullvad-vpn
