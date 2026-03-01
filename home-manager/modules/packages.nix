@@ -14,6 +14,7 @@
       fluffychat
       signal-desktop
       slack
+      # TODO: re-add zoom-us (removed 2026-03-01: upstream download server unreliable)
     ];
     jetbrainsIdesWithPreInstalledPlugins = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "org.jetbrains.junie" "nix-idea"];
     devTools = [
@@ -35,6 +36,7 @@
       nerd-fonts.fira-code
       nerd-fonts.droid-sans-mono
       nerd-fonts.symbols-only
+      # TODO: re-add noto-fonts and noto-fonts-color-emoji (removed 2026-03-01: broken noto-fonts-subset derivation in nixpkgs)
       proggyfonts
     ];
     multimedia = [
@@ -45,6 +47,7 @@
       vlc
     ];
     officeTools = [
+      # TODO: re-add libreoffice-still (removed 2026-03-01: depends on broken noto-fonts-subset via fontconfig)
     ];
     systemUtils = [
       brightnessctl
