@@ -28,6 +28,7 @@ in {
             (extension "1password-x-password-manager" "{d634138d-c276-4fc8-924b-40a0ea21d284}")
             (extension "adblock-for-youtube" "jid1-q4sG8pYhq8KGHs@jetpack")
             (extension "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}")
+            (extension "multi-account-containers" "@testpilot-containers")
             (extension "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack")
             (extension "ublock-origin" "uBlock0@raymondhill.net")
           ];
