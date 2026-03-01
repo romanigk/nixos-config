@@ -45,7 +45,6 @@
       vlc
     ];
     officeTools = [
-      libreoffice-still
     ];
     systemUtils = [
       brightnessctl
