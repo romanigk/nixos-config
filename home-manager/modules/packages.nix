@@ -14,7 +14,6 @@
       fluffychat
       signal-desktop
       slack
-      zoom-us
     ];
     jetbrainsIdesWithPreInstalledPlugins = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "org.jetbrains.junie" "nix-idea"];
     devTools = [
