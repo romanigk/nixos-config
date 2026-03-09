@@ -53,8 +53,11 @@
       hmPkg = home-manager.packages.${pkgs.system}.default;
       updateScript = pkgs.writeShellApplication {
         name = "update";
-        runtimeInputs = [pkgs.git pkgs.nix pkgs.nixos-rebuild pkgs.sudo hmPkg];
+        runtimeInputs = [pkgs.git pkgs.nix hmPkg];
         text = ''
+          # NixOS system paths for setuid wrappers (sudo) and system tools
+          export PATH="/run/wrappers/bin:/run/current-system/sw/bin:$PATH"
+
           FLAKE_DIR=$(git rev-parse --show-toplevel)
           HOST=$(hostname)
           cd "$FLAKE_DIR"
