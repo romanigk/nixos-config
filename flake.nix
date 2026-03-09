@@ -49,6 +49,45 @@
     packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
+    apps = forEachSystem (pkgs: let
+      hmPkg = home-manager.packages.${pkgs.system}.default;
+      updateScript = pkgs.writeShellApplication {
+        name = "update";
+        runtimeInputs = [pkgs.git pkgs.nix pkgs.nixos-rebuild pkgs.sudo hmPkg];
+        text = ''
+          FLAKE_DIR=$(git rev-parse --show-toplevel)
+          HOST=$(hostname)
+          cd "$FLAKE_DIR"
+
+          echo "==> Flake-Inputs aktualisieren..."
+          nix flake update
+
+          if ! git diff --quiet flake.lock; then
+            echo "==> flake.lock committen..."
+            git add flake.lock
+            git commit -m "flake: update inputs $(date +%Y-%m-%d)"
+          fi
+
+          echo "==> NixOS-Konfiguration anwenden (sudo)..."
+          sudo nixos-rebuild switch --flake ".#$HOST"
+
+          echo "==> Home-Manager-Konfiguration anwenden..."
+          home-manager switch --flake ".#p1ng0ut@$HOST"
+
+          echo "==> Fertig."
+        '';
+      };
+    in {
+      default = {
+        type = "app";
+        program = "${updateScript}/bin/update";
+      };
+      update = {
+        type = "app";
+        program = "${updateScript}/bin/update";
+      };
+    });
+
     nixosConfigurations = {
       pulse15-gen1 = nixpkgs.lib.nixosSystem {
         specialArgs = {
