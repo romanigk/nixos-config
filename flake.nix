@@ -62,22 +62,22 @@
           HOST=$(hostname)
           cd "$FLAKE_DIR"
 
-          echo "==> Flake-Inputs aktualisieren..."
+          echo "==> Update Flake-Inputs..."
           nix flake update
 
           if ! git diff --quiet flake.lock; then
-            echo "==> flake.lock committen..."
+            echo "==> Commit flake.lock..."
             git add flake.lock
             git commit -m "flake: update inputs $(date +%Y-%m-%d)"
           fi
 
-          echo "==> NixOS-Konfiguration anwenden (sudo)..."
+          echo "==> Apply NixOS-Configuration (needs sudo)..."
           sudo nixos-rebuild switch --flake ".#$HOST"
 
-          echo "==> Home-Manager-Konfiguration anwenden..."
+          echo "==> Apply Home-Manager-Configuration..."
           home-manager switch --flake ".#p1ng0ut@$HOST"
 
-          echo "==> Fertig."
+          echo "==> Finished."
         '';
       };
     in {
