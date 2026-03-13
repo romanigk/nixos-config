@@ -36,6 +36,18 @@ home-manager switch --flake .#p1ng0ut@hostname
 
 Wobei `hostname` entweder `pulse15-gen1` oder `thinkpad25` ist.
 
+### Alles auf einmal aktualisieren (Flake + NixOS + Home-Manager)
+
+```bash
+nix run .#update
+```
+
+Dieses Skript führt automatisch folgende Schritte aus:
+1. `nix flake update` – aktualisiert alle Flake-Inputs
+2. Committet `flake.lock` falls es Änderungen gibt
+3. `sudo nixos-rebuild switch --flake .#<hostname>` – wendet die NixOS-Konfiguration an
+4. `home-manager switch --flake .#p1ng0ut@<hostname>` – wendet die Home-Manager-Konfiguration an
+
 ### Flake aktualisieren
 
 ```bash
@@ -100,4 +112,5 @@ Konfiguration:
 - NixOS + Home‑Manager setup for hosts `pulse15-gen1` and `thinkpad25`.
 - Rebuild system: `sudo nixos-rebuild switch --flake .#<hostname>`.
 - Apply Home‑Manager: `home-manager switch --flake .#p1ng0ut@<hostname>`.
+- Update everything at once (flake + NixOS + Home-Manager): `nix run .#update`.
 - Update inputs: `nix flake update`; check flake: `nix flake check`; format code: `nix fmt` (Alejandra).
