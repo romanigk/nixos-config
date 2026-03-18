@@ -1,8 +1,11 @@
 {
   inputs,
+  config,
   pkgs,
   ...
-}: {
+}: let
+  voxtypeKey = "Scroll_Lock";
+in {
   imports = [inputs.voxtype.homeManagerModules.default];
 
   programs.voxtype = {
@@ -17,5 +20,16 @@
         translate = false;
       };
     };
+  };
+
+  # Hyprland: push on press, release on key-up
+  wayland.windowManager.hyprland.settings = {
+    bind = [", ${voxtypeKey}, exec, voxtype push"];
+    bindl = [", ${voxtypeKey}, exec, voxtype release"];
+  };
+
+  # Niri: only key-press events are supported for spawn actions
+  programs.niri.settings.binds = {
+    "${voxtypeKey}".action = config.lib.niri.actions.spawn "voxtype" "push";
   };
 }
