@@ -11,5 +11,6 @@
     ./default.nix
     ./modules/hyprland.nix
     ./modules/niri.nix
+    ./modules/voxtype.nix
   ];
 }

@@ -20,6 +20,8 @@
       url = "github:nix-community/nix-jetbrains-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    voxtype.url = "github:peteonrails/voxtype";
   };
 
   outputs = {
