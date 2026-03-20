@@ -92,6 +92,7 @@
       "$mod" = "SUPER";
 
       bind = [
+        "$mod, Y, exec, voxtype"
         "$mod, Q, exec, kitty"
         "$mod, C, killactive,"
         "$mod, M, exit,"

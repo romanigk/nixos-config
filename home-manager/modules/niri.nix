@@ -23,6 +23,9 @@
       "Mod+Shift+Slash".action = show-hotkey-overlay;
       "Mod+O".action = toggle-overview;
 
+      # Voice dictation
+      "Mod+Y".action = spawn "voxtype";
+
       # Application launchers
       "Mod+Return".action = spawn "alacritty";
       "Mod+D".action = spawn "fuzzel";
