@@ -55,6 +55,7 @@
       gparted
       mullvad-vpn
       pandoc
+      sox
       xdg-utils
     ];
   in
