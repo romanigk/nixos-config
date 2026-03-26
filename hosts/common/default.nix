@@ -127,6 +127,8 @@
     };
 
     nix-ld.enable = true;
+
+    virt-manager.enable = true;
   };
 
   hardware = {
@@ -138,9 +140,13 @@
     graphics.enable = true;
   };
 
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
+  virtualisation = {
+    docker.rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+
+    libvirtd.enable = true;
   };
 
   users.users = {
@@ -149,7 +155,7 @@
       useDefaultShell = true;
       isNormalUser = true;
       description = "Robert Manigk";
-      extraGroups = ["networkmanager" "wheel" "docker"];
+      extraGroups = ["networkmanager" "wheel" "docker" "libvirtd"];
       packages = [
         inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
