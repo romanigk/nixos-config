@@ -69,7 +69,7 @@
           if ! git diff --quiet flake.lock; then
             echo "==> Commit flake.lock..."
             git add flake.lock
-            git commit -m "flake: update inputs $(date +%Y-%m-%d)"
+            git commit -m "flake: update inputs $(date +%Y-%m-%d) [$HOST]"
           fi
 
           echo "==> Apply NixOS-Configuration (needs sudo)..."
