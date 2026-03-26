@@ -67,6 +67,12 @@
     ];
   };
 
+  services.udiskie = {
+    enable = true;
+    automount = true;
+    tray = "auto";
+  };
+
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
