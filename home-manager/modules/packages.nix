@@ -56,7 +56,6 @@
       mullvad-vpn
       pandoc
       sox
-      voxtype
       xdg-utils
     ];
   in
