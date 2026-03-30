@@ -19,6 +19,7 @@
     jetbrainsIdesWithPreInstalledPlugins = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "org.jetbrains.junie" "nix-idea"];
     devTools = [
       claude-code
+      glab
       (jetbrainsIdesWithPreInstalledPlugins "idea")
       (jetbrainsIdesWithPreInstalledPlugins "pycharm")
       (jetbrainsIdesWithPreInstalledPlugins "rust-rover")
