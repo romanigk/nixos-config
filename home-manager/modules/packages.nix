@@ -16,7 +16,7 @@
       slack
       # TODO: re-add zoom-us (removed 2026-03-01: upstream download server unreliable)
     ];
-    jetbrainsIdesWithPreInstalledPlugins = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "org.jetbrains.junie" "nix-idea"];
+    jetbrainsIdesWithPreInstalledPlugins = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "nix-idea"];
     devTools = [
       claude-code
       glab
