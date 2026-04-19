@@ -8,6 +8,7 @@
 }: {
   programs.git = {
     enable = true;
+    signing.format = null;
     settings = {
       alias = {
         adog = "log --all --decorate --oneline --graph";

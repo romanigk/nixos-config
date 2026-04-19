@@ -51,7 +51,7 @@
     formatter = forEachSystem (pkgs: pkgs.alejandra);
 
     apps = forEachSystem (pkgs: let
-      hmPkg = home-manager.packages.${pkgs.system}.default;
+      hmPkg = home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default;
       updateScript = pkgs.writeShellApplication {
         name = "update";
         runtimeInputs = [pkgs.git pkgs.nix hmPkg];
