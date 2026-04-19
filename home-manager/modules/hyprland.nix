@@ -100,7 +100,7 @@
         "$mod, V, togglefloating,"
         "$mod, R, exec, wofi --show drun"
         "$mod, P, pseudo, # dwindle"
-        "$mod, J, togglesplit, # dwindle"
+        "$mod, J, layoutmsg, togglesplit"
 
         # Move focus with mod + arrow keys
         "$mod, left, movefocus, l"
