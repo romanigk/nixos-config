@@ -21,6 +21,7 @@
 in {
   programs = {
     firefox = {
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
