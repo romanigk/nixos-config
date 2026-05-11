@@ -19,6 +19,7 @@
     jetbrainsIdesWithPreInstalledPlugins = ide: inputs.nix-jetbrains-plugins.lib.buildIdeWithPlugins pkgs ide ["com.claude.code.plugin" "nix-idea"];
     devTools = [
       claude-code
+      pi-coding-agent
       glab
       (jetbrainsIdesWithPreInstalledPlugins "idea")
       (jetbrainsIdesWithPreInstalledPlugins "pycharm")
