@@ -40,7 +40,15 @@
             active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
             inactive_border = "rgba(595959aa)",
           },
-          layout = "dwindle",
+          layout            = "dwindle",
+          resize_on_border  = true,
+        },
+      })
+
+      hl.config({
+        misc = {
+          disable_hyprland_logo   = true,
+          disable_splash_rendering = true,
         },
       })
 
@@ -66,6 +74,12 @@
       hl.device({ name = "internal-german-laptop-keyboard", kb_layout = "de,us", kb_variant = ",intl",  kb_options = "grp:win_space_toggle" })
       hl.device({ name = "external-keyboard-us-layout",     kb_layout = "us,de", kb_variant = "intl,",  kb_options = "grp:alt_shift_toggle" })
 
+      -- Wayland environment variables
+      hl.env("XCURSOR_SIZE",       "24")
+      hl.env("QT_QPA_PLATFORM",    "wayland")
+      hl.env("GDK_BACKEND",        "wayland")
+      hl.env("MOZ_ENABLE_WAYLAND", "1")
+
       -- Keybindings
       local mod = "SUPER"
 
@@ -75,14 +89,19 @@
       hl.bind(mod .. " + M", hl.dsp.exit())
       hl.bind(mod .. " + E", hl.dsp.exec_cmd("nautilus"))
       hl.bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-      hl.bind(mod .. " + R", hl.dsp.exec_cmd("wofi --show drun"))
+      hl.bind(mod .. " + R", hl.dsp.exec_cmd("walker"))
       hl.bind(mod .. " + P", hl.dsp.window.pseudo())
       hl.bind(mod .. " + J", hl.dsp.layout("togglesplit"))
 
-      hl.bind(mod .. " + left",  hl.dsp.focus({ direction = "left" }))
-      hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
-      hl.bind(mod .. " + up",    hl.dsp.focus({ direction = "up" }))
-      hl.bind(mod .. " + down",  hl.dsp.focus({ direction = "down" }))
+      hl.bind(mod .. " + left",        hl.dsp.focus({ direction = "left" }))
+      hl.bind(mod .. " + right",       hl.dsp.focus({ direction = "right" }))
+      hl.bind(mod .. " + up",          hl.dsp.focus({ direction = "up" }))
+      hl.bind(mod .. " + down",        hl.dsp.focus({ direction = "down" }))
+
+      hl.bind(mod .. " + SHIFT + left",  hl.dsp.window.move({ direction = "left" }))
+      hl.bind(mod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
+      hl.bind(mod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "up" }))
+      hl.bind(mod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
 
       for i = 1, 9 do
         hl.bind(mod .. " + " .. i,         hl.dsp.focus({ workspace = i }))
@@ -106,6 +125,9 @@
       hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true })
       hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
 
+      -- Screenshot
+      hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" ~/Pictures/screenshot-$(date +%s).png'))
+
       -- Mouse window management
       hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
       hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
@@ -113,6 +135,7 @@
       -- Autostart
       hl.on("hyprland.start", function()
         hl.exec_cmd("blueman-applet")
+        hl.exec_cmd("nm-applet")
         hl.exec_cmd("dunst")
         hl.exec_cmd("hyprpolkitagent")
         hl.exec_cmd("hyprpaper")
@@ -127,15 +150,16 @@
 
   home.packages = with pkgs; [
     dunst
+    grim
     hyprpaper
     hyprpolkitagent
     kitty
     nautilus
     networkmanagerapplet
     pavucontrol
+    slurp
     walker
     waybar
-    wofi
     yazi
   ];
 
