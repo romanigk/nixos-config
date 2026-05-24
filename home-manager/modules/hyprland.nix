@@ -8,7 +8,7 @@
 }: {
   wayland.windowManager.hyprland = {
     configType = "lua";
-    enable = true;
+    enable = true;  
     package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
     xwayland.enable = true;
 
@@ -139,6 +139,7 @@
         hl.exec_cmd("dunst")
         hl.exec_cmd("hyprpolkitagent")
         hl.exec_cmd("hyprpaper")
+        hl.exec_cmd("walker --gapplication-service")
         hl.exec_cmd("waybar")
         hl.exec_cmd("[workspace 1 silent] idea")
         hl.exec_cmd("[workspace 2 silent] kitty")
