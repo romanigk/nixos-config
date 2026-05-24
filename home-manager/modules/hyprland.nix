@@ -126,7 +126,7 @@
       hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
 
       -- Screenshot
-      hl.bind("Print", hl.dsp.exec_cmd('mkdir -p "$HOME/Bilder/Bildschirmfotos" && grim -g "$(slurp)" "$HOME/Bilder/Bildschirmfotos/screenshot-$(date +%s).png"'))
+      hl.bind("Print", hl.dsp.exec_cmd('mkdir -p "$HOME/Bilder/Bildschirmfotos" && grim -g "$(slurp)" "$HOME/Bilder/Bildschirmfotos/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"'))
 
       -- Mouse window management
       hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
