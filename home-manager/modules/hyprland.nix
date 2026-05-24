@@ -139,6 +139,7 @@
         hl.exec_cmd("dunst")
         hl.exec_cmd("hyprpolkitagent")
         hl.exec_cmd("hyprpaper")
+        hl.exec_cmd("elephant")
         hl.exec_cmd("walker --gapplication-service")
         hl.exec_cmd("waybar")
         hl.exec_cmd("[workspace 1 silent] idea")
@@ -151,6 +152,7 @@
 
   home.packages = with pkgs; [
     dunst
+    elephant
     grim
     hyprpaper
     hyprpolkitagent
