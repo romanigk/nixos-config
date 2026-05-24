@@ -137,7 +137,6 @@
         hl.exec_cmd("blueman-applet")
         hl.exec_cmd("nm-applet")
         hl.exec_cmd("dunst")
-        hl.exec_cmd("${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent")
         hl.exec_cmd("hyprpaper")
         hl.exec_cmd("elephant")
         hl.exec_cmd("walker --gapplication-service")
@@ -148,6 +147,22 @@
         hl.exec_cmd("[workspace 4 silent] 1password")
       end)
     '';
+  };
+
+  systemd.user.services.hyprpolkitagent = {
+    Unit = {
+      Description = "Hyprland Polkit Authentication Agent";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+      ConditionEnvironment = "WAYLAND_DISPLAY";
+    };
+    Service = {
+      ExecStart = "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent";
+      Slice = "session.slice";
+      TimeoutStopSec = "5sec";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 
   home.packages = with pkgs; [
