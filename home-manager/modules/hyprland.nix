@@ -12,157 +12,116 @@
     package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
     xwayland.enable = true;
 
-    settings = {
-      monitor = "eDP-1,1920x1080,0x0,1";
+    extraConfig = ''
+      hl.monitor({
+        output   = "eDP-1",
+        mode     = "1920x1080",
+        position = "0x0",
+        scale    = 1,
+      })
 
-      input = {
-        kb_layout = "us,de";
-        kb_variant = "intl,";
-        kb_options = "grp:win_space_toggle";
-        follow_mouse = 1;
-        touchpad = {
-          natural_scroll = false;
-        };
-        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
-      };
+      hl.config({
+        input = {
+          kb_layout    = "us,de",
+          kb_variant   = "intl,",
+          kb_options   = "grp:win_space_toggle",
+          follow_mouse = 1,
+          sensitivity  = 0,
+          touchpad     = { natural_scroll = false },
+        },
+      })
 
-      device = [
-        {
-          # Internal laptop keyboard - example for ThinkPad
-          name = "internal-german-laptop-keyboard";
-          kb_layout = "de,us";
-          kb_variant = ",intl";
-          kb_options = "grp:win_space_toggle";
-        }
-        {
-          # External keyboard - US layout
-          name = "external-keyboard-us-layout";
-          kb_layout = "us,de";
-          kb_variant = "intl,";
-          kb_options = "grp:alt_shift_toggle";
-        }
-      ];
+      hl.config({
+        general = {
+          gaps_in     = 5,
+          gaps_out    = 20,
+          border_size = 2,
+          col = {
+            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            inactive_border = "rgba(595959aa)",
+          },
+          layout = "dwindle",
+        },
+      })
 
-      exec-once = [
-        "blueman-applet"
-        "dunst"
-        "hyprpaper"
-        "waybar"
-        "[workspace 1 silent] idea"
-        "[workspace 2 silent] kitty"
-        "[workspace 3 silent] firefox"
-        "[workspace 4 silent] 1password"
-      ];
+      hl.config({
+        decoration = {
+          rounding = 10,
+          blur     = { enabled = true, size = 3, passes = 1 },
+        },
+      })
 
-      general = {
-        gaps_in = 5;
-        gaps_out = 20;
-        border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
-        layout = "dwindle";
-      };
+      hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
+      hl.animation({ leaf = "windows",     enabled = true, speed = 7,  bezier = "myBezier" })
+      hl.animation({ leaf = "windowsOut",  enabled = true, speed = 7,  bezier = "default", style = "popin 80%" })
+      hl.animation({ leaf = "border",      enabled = true, speed = 10, bezier = "default" })
+      hl.animation({ leaf = "borderangle", enabled = true, speed = 8,  bezier = "default" })
+      hl.animation({ leaf = "fade",        enabled = true, speed = 7,  bezier = "default" })
+      hl.animation({ leaf = "workspaces",  enabled = true, speed = 6,  bezier = "default" })
 
-      decoration = {
-        rounding = 10;
-        blur = {
-          enabled = true;
-          size = 3;
-          passes = 1;
-        };
-      };
+      hl.config({
+        dwindle = { preserve_split = true },
+      })
 
-      animations = {
-        enabled = "yes";
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
-        ];
-      };
+      hl.device({ name = "internal-german-laptop-keyboard", kb_layout = "de,us", kb_variant = ",intl",  kb_options = "grp:win_space_toggle" })
+      hl.device({ name = "external-keyboard-us-layout",     kb_layout = "us,de", kb_variant = "intl,",  kb_options = "grp:alt_shift_toggle" })
 
-      dwindle = {
-        preserve_split = "yes";
-      };
+      -- Keybindings
+      local mod = "SUPER"
 
-      "$mod" = "SUPER";
+      hl.bind(mod .. " + Y", hl.dsp.exec_cmd("voxtype"))
+      hl.bind(mod .. " + Q", hl.dsp.exec_cmd("kitty"))
+      hl.bind(mod .. " + C", hl.dsp.window.close())
+      hl.bind(mod .. " + M", hl.dsp.exit())
+      hl.bind(mod .. " + E", hl.dsp.exec_cmd("nautilus"))
+      hl.bind(mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+      hl.bind(mod .. " + R", hl.dsp.exec_cmd("wofi --show drun"))
+      hl.bind(mod .. " + P", hl.dsp.window.pseudo())
+      hl.bind(mod .. " + J", hl.dsp.layout("togglesplit"))
 
-      bind = [
-        "$mod, Y, exec, voxtype"
-        "$mod, Q, exec, kitty"
-        "$mod, C, killactive,"
-        "$mod, M, exit,"
-        "$mod, E, exec, nautilus"
-        "$mod, V, togglefloating,"
-        "$mod, R, exec, wofi --show drun"
-        "$mod, P, pseudo, # dwindle"
-        "$mod, J, layoutmsg, togglesplit"
+      hl.bind(mod .. " + left",  hl.dsp.focus({ direction = "left" }))
+      hl.bind(mod .. " + right", hl.dsp.focus({ direction = "right" }))
+      hl.bind(mod .. " + up",    hl.dsp.focus({ direction = "up" }))
+      hl.bind(mod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
-        # Move focus with mod + arrow keys
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
+      for i = 1, 9 do
+        hl.bind(mod .. " + " .. i,         hl.dsp.focus({ workspace = i }))
+        hl.bind(mod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
+      end
+      hl.bind(mod .. " + 0",         hl.dsp.focus({ workspace = 10 }))
+      hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 
-        # Switch workspaces with mod + [0-9]
-        "$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
-        "$mod, 6, workspace, 6"
-        "$mod, 7, workspace, 7"
-        "$mod, 8, workspace, 8"
-        "$mod, 9, workspace, 9"
-        "$mod, 0, workspace, 10"
+      hl.bind(mod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+      hl.bind(mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
-        # Move active window to a workspace with mod + SHIFT + [0-9]
-        "$mod SHIFT, 1, movetoworkspace, 1"
-        "$mod SHIFT, 2, movetoworkspace, 2"
-        "$mod SHIFT, 3, movetoworkspace, 3"
-        "$mod SHIFT, 4, movetoworkspace, 4"
-        "$mod SHIFT, 5, movetoworkspace, 5"
-        "$mod SHIFT, 6, movetoworkspace, 6"
-        "$mod SHIFT, 7, movetoworkspace, 7"
-        "$mod SHIFT, 8, movetoworkspace, 8"
-        "$mod SHIFT, 9, movetoworkspace, 9"
-        "$mod SHIFT, 0, movetoworkspace, 10"
+      hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+      hl.bind(mod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
-        # Example special workspace (scratchpad)
-        "$mod, S, togglespecialworkspace, magic"
-        "$mod SHIFT, S, movetoworkspace, special:magic"
+      -- Volume (locked + repeating)
+      hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
+      hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
+      hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
 
-        # Scroll through existing workspaces with mod + scroll
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
-      ];
+      -- Brightness (repeating)
+      hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true })
+      hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
 
-      # Volume controls
-      bindel = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-      ];
+      -- Mouse window management
+      hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+      hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-      bindl = [
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ];
-
-      # Brightness controls
-      binde = [
-        ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-      ];
-
-      bindm = [
-        # Move/resize windows with mod + LMB/RMB and dragging
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
-      ];
-    };
+      -- Autostart
+      hl.on("hyprland.start", function()
+        hl.exec_cmd("blueman-applet")
+        hl.exec_cmd("dunst")
+        hl.exec_cmd("hyprpaper")
+        hl.exec_cmd("waybar")
+        hl.exec_cmd("[workspace 1 silent] idea")
+        hl.exec_cmd("[workspace 2 silent] kitty")
+        hl.exec_cmd("[workspace 3 silent] firefox")
+        hl.exec_cmd("[workspace 4 silent] 1password")
+      end)
+    '';
   };
 
   home.packages = with pkgs; [
@@ -180,10 +139,6 @@
     wofi
     yazi
   ];
-
-  # Hinweis: Keine Überschreibung von LANG/LC_* hier, damit die Session
-  # die systemweite Locale (de_DE.UTF-8) erbt. Falls nötig, kann man
-  # gezielt nur LC_CTYPE temporär setzen, ohne LC_ALL zu verwenden.
 
   programs.waybar = {
     enable = true;
