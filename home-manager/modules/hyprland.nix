@@ -137,7 +137,7 @@
         hl.exec_cmd("blueman-applet")
         hl.exec_cmd("nm-applet")
         hl.exec_cmd("dunst")
-        hl.exec_cmd("hyprpolkitagent")
+        hl.exec_cmd("${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent")
         hl.exec_cmd("hyprpaper")
         hl.exec_cmd("elephant")
         hl.exec_cmd("walker --gapplication-service")
