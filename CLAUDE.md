@@ -69,7 +69,7 @@ nix build .#<package-name>
 ### Flake Structure
 
 The `flake.nix` is the entry point and defines:
-- **Inputs**: nixpkgs (unstable), nixpkgs-stable (25.05), systems, home-manager, hyprland, niri, nixos-hardware, nix-jetbrains-plugins
+- **Inputs**: nixpkgs (unstable), nixpkgs-stable (25.05), systems, home-manager, hyprland, niri, nixos-hardware
 - **Outputs**: Two NixOS configurations and two Home Manager configurations
 - **Special Args**: `inputs` and `outputs` are passed to all modules via `specialArgs`/`extraSpecialArgs`
 
