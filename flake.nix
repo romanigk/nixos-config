@@ -68,7 +68,7 @@
           fi
 
           echo "==> Apply NixOS-Configuration (needs sudo)..."
-          sudo nixos-rebuild switch --flake ".#$HOST"
+          sudo nixos-rebuild boot --flake ".#$HOST"
 
           echo "==> Apply Home-Manager-Configuration..."
           home-manager switch --flake ".#p1ng0ut@$HOST"
