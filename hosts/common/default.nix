@@ -26,7 +26,7 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
       flake-registry = "";
-      nix-path = config.nix.nixPath;
+      nix-path = config.nix.settings.nix-path;
       # Optimise the store by deduplicating identical files automatically
       auto-optimise-store = true;
 
@@ -49,7 +49,7 @@
     channel.enable = false;
 
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
 
     gc = {
       automatic = true;
