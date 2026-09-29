@@ -83,7 +83,6 @@
       -- Keybindings
       local mod = "SUPER"
 
-      hl.bind(mod .. " + Y", hl.dsp.exec_cmd("voxtype"))
       hl.bind(mod .. " + Q", hl.dsp.exec_cmd("kitty"))
       hl.bind(mod .. " + C", hl.dsp.window.close())
       hl.bind(mod .. " + M", hl.dsp.exit())
