@@ -16,7 +16,6 @@
       slack
     ];
     devTools = [
-      claude-code
       pi-coding-agent
       glab
       meld
