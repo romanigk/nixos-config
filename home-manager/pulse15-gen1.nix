@@ -11,6 +11,5 @@
     ./default.nix
     ./modules/hyprland.nix
     ./modules/niri.nix
-    # ./modules/voxtype.nix # disabled: upstream build failure (ort crate)
   ];
 }
