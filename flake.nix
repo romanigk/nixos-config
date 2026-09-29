@@ -15,7 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    voxtype.url = "github:peteonrails/voxtype";
   };
 
   outputs = {
