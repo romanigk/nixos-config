@@ -139,11 +139,9 @@
         hl.exec_cmd("hyprpaper")
         hl.exec_cmd("elephant")
         hl.exec_cmd("walker --gapplication-service")
-        hl.exec_cmd("waybar")
-        hl.exec_cmd("[workspace 1 silent] idea")
-        hl.exec_cmd("[workspace 2 silent] kitty")
-        hl.exec_cmd("[workspace 3 silent] firefox")
-        hl.exec_cmd("[workspace 4 silent] 1password")
+        hl.exec_cmd("[workspace 1 silent] kitty")
+        hl.exec_cmd("[workspace 2 silent] firefox")
+        hl.exec_cmd("[workspace 3 silent] 1password")
       end)
     '';
   };
