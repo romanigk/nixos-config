@@ -31,7 +31,6 @@
       nerd-fonts.fira-code
       nerd-fonts.droid-sans-mono
       nerd-fonts.symbols-only
-      # TODO: re-add noto-fonts and noto-fonts-color-emoji (removed 2026-03-01: broken noto-fonts-subset derivation in nixpkgs)
       proggyfonts
     ];
     multimedia = [
@@ -40,9 +39,6 @@
       krita
       mediathekview
       vlc
-    ];
-    officeTools = [
-      # TODO: re-add libreoffice-still (removed 2026-03-01: depends on broken noto-fonts-subset via fontconfig)
     ];
     systemUtils = [
       brightnessctl
@@ -59,7 +55,6 @@
     ++ email
     ++ fonts
     ++ multimedia
-    ++ officeTools
     ++ systemUtils;
 
   fonts.fontconfig.enable = true;
