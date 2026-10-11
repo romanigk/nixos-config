@@ -8,7 +8,7 @@
 }: {
   wayland.windowManager.hyprland = {
     configType = "lua";
-    enable = true;  
+    enable = true;
     package = inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland;
     xwayland.enable = true;
 
@@ -149,8 +149,8 @@
   systemd.user.services.hyprpolkitagent = {
     Unit = {
       Description = "Hyprland Polkit Authentication Agent";
-      PartOf = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session.target"];
       ConditionEnvironment = "WAYLAND_DISPLAY";
     };
     Service = {
@@ -159,7 +159,7 @@
       TimeoutStopSec = "5sec";
       Restart = "on-failure";
     };
-    Install.WantedBy = [ "graphical-session.target" ];
+    Install.WantedBy = ["graphical-session.target"];
   };
 
   home.packages = with pkgs; [
