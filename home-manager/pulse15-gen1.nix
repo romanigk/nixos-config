@@ -9,5 +9,5 @@
   imports = [
     ./default.nix
     ./modules/hyprland.nix
-    ];
+  ];
 }
